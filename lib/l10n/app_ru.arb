@@ -1,0 +1,122 @@
+{
+  "@@locale": "ru",
+  "appTitle": "Flutter Demo",
+  "appVersion": "Версия приложения: v{version} ({build}) {platform}",
+  "@appVersion": {
+    "placeholders": {
+      "version": {},
+      "build": {},
+      "platform": {}
+    }
+  },
+  "authorizationAgreementPrefix": "Нажимая кнопку \"{button}\", вы соглашаетесь с",
+  "@authorizationAgreementPrefix": {
+    "placeholders": {
+      "button": {}
+    }
+  },
+  "termOfUse": "условиями использования",
+  "privacyPolicy": "политикой конфиденциальности",
+
+  "promocode": "промокод",
+  "promocodes": "Промокоды",
+  "no_promocodes": "Нет промокодов",
+  "api_tokens": "API токены",
+  "api_token": "API токен",
+  "no_tokens": "Нет API токенов",
+  "id": "ID",
+  "company_id": "ID компании",
+  "title": "Название",
+  "name": "Имя",
+  "code": "Код",
+  "description": "Описание",
+  "created_at": "Дата создания",
+  "starts_at": "Начало",
+  "expires_at": "Истекает",
+  "discount_percent": "Скидка %",
+  "discount_amount": "Сумма скидки",
+  "usage_limit": "Лимит использования",
+  "used_count": "Использовано раз",
+  "is_active": "Активен",
+  "created": "Создано",
+  "qr_code": "QR-код",
+
+  "hintSaveThisToken": "Запишите токен безопасности и сохраните его в надежном месте. ЭТОТ ТОКЕН ВИДЕН ТОЛЬКО ПРИ СОЗДАНИИ!",
+
+  "userUpdateTitle": "Обновление профиля пользователя",
+  "username": "Имя пользователя",
+
+  "companyUpdateTitle": "Обновление профиля компании",
+  "companyName": "Название компании",
+
+  "and": "и",
+
+  "are_you_sure_to_delete": "Вы уверены, что хотите удалить этот {item}?\n\nID: {id}",
+  "@are_you_sure_to_delete": {
+    "placeholders": {
+      "item": {
+        "type": "String",
+        "example": "promocode"
+      },
+      "id": {
+        "type": "String",
+        "example": "uuid"
+      }
+    }
+  },
+
+  "ok": "ОК",
+  "create": "Создать",
+  "delete": "Удалить",
+  "cancel": "Отмена",
+  "edit": "Изменить",
+  "save": "Сохранить",
+  "update": "Обновить",
+  "close": "Закрыть",
+  "share": "Поделиться",
+  "activate": "Активировать",
+  "success": "Успешно",
+
+  "warning": "Предупреждение",
+  "unknownError": "Неизвестная ошибка",
+  "connectionError": "Не удалось подключиться к сервису",
+  "userIdIsNull": "ID пользователя пуст",
+
+  "authorizationTitle": "Авторизация аккаунта",
+  "authorizationDescription": "Введите номер телефона",
+  "authorizationLoginTitle": "Войти в аккаунт",
+  "authorizationRegisterTitle": "Создать аккаунт",
+  "authorizationPhoneTitle": "Номер телефона",
+  "authorizationGetCodeTitle": "Получить код",
+  "authorizationCodeTitle": "Подтверждение кода",
+  "authorizationPasteCodeDescription": "Вставьте полученный код",
+  "authorizationLogoutTitle": "Выйти",
+
+  "companyTitle": "Компания",
+  "companyDescription": "Настройки компании",
+  "companyCreatePromocode": "Создать промокод",
+  "companyListPromocodes": "Существующие промокоды",
+  "companyUpdatePromocodeTitle": "Обновить промокод",
+  "companyUpdatePromocodeDescription": "Редактирование информации о промокоде",
+  "companyCreatePromocodeTitle": "Создать промокод",
+  "companyCreatePromocodeDescription": "Форма создания нового промокода",
+  "companyCreateTokenTitle": "Создать API токен",
+  "companyCreateTokenDescription": "Форма создания нового API токена",
+
+  "homeTitle": "Главная",
+  "homeDescription": "Список акций",
+  "no_promotions": "Нет акций",
+
+  "promocodesTitle": "Промокоды",
+  "promocodesDescription": "Мои промокоды",
+  "promocodesUsed": "Использован",
+  "promocodesActive": "Активен",
+  "promocodesEmpty": "У вас пока нет промокодов",
+  "activated": "Активирован",
+  "used": "Использован",
+  "promocodeActivate": "АКТИВИРОВАТЬ QR",
+  "promocodeShare": "ПОДЕЛИТЬСЯ QR",
+
+  "scannerTitle": "Сканер",
+  "scannerDescription": "Сканировать промокоды"
+}

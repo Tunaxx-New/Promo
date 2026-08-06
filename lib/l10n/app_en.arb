@@ -1,0 +1,122 @@
+{
+  "@@locale": "en",
+  "appTitle": "Flutter Demo",
+  "appVersion": "App version: v{version} ({build}) {platform}",
+  "@appVersion": {
+    "placeholders": {
+      "version": {},
+      "build": {},
+      "platform": {}
+    }
+  },
+  "authorizationAgreementPrefix": "By pressing the \"{button}\" button, you agree to the",
+  "@authorizationAgreementPrefix": {
+    "placeholders": {
+      "button": {}
+    }
+  },
+  "termOfUse": "term of use",
+  "privacyPolicy": "privacy policy",
+
+  "promocode": "promocode",
+  "promocodes": "Promo codes",
+  "no_promocodes": "No promo codes",
+  "api_tokens": "API Tokens",
+  "api_token": "API Token",
+  "no_tokens": "No API tokens",
+  "id": "ID",
+  "company_id": "Company ID",
+  "title": "Title",
+  "name": "Name",
+  "code": "Code",
+  "description": "Description",
+  "created_at": "Created at",
+  "starts_at": "Starts",
+  "expires_at": "Expires",
+  "discount_percent": "Discount %",
+  "discount_amount": "Discount Amount",
+  "usage_limit": "Usage Limit",
+  "used_count": "Used Count",
+  "is_active": "Active",
+  "created": "Created",
+  "qr_code": "QR Code",
+
+  "hintSaveThisToken": "Write security token, and save in some place. THIS TOKEN VISIBLE ONLY ON CREATION!",
+
+  "userUpdateTitle": "User update profile",
+  "username": "User name",
+
+  "companyUpdateTitle": "Company update profile",
+  "companyName": "Company name",
+
+  "and": "and",
+
+  "are_you_sure_to_delete": "Are you sure you want to delete this {item}?\n\nID: {id}",
+  "@are_you_sure_to_delete": {
+    "placeholders": {
+      "item": {
+        "type": "String",
+        "example": "promocode"
+      },
+      "id": {
+        "type": "String",
+        "example": "uuid"
+      }
+    }
+  },
+
+  "ok": "OK",
+  "create": "Create",
+  "delete": "Delete",
+  "cancel": "Cancel",
+  "edit": "Edit",
+  "save": "Save",
+  "update": "Update",
+  "close": "Close",
+  "share": "Share",
+  "activate": "Activate",
+  "success": "Success",
+
+  "warning": "Warning",
+  "unknownError": "Unknown error",
+  "connectionError": "Cannot connect to service",
+  "userIdIsNull": "User ID is empty",
+
+  "authorizationTitle": "Account authorization",
+  "authorizationDescription": "Enter phone number",
+  "authorizationLoginTitle": "Enter into account",
+  "authorizationRegisterTitle": "Create account",
+  "authorizationPhoneTitle": "Phone number",
+  "authorizationGetCodeTitle": "Get code",
+  "authorizationCodeTitle": "Code confirmation",
+  "authorizationPasteCodeDescription": "Paste received code",
+  "authorizationLogoutTitle": "Logout",
+
+  "companyTitle": "Company",
+  "companyDescription": "Company settings",
+  "companyCreatePromocode": "Create promo code",
+  "companyListPromocodes": "Existing promocodes",
+  "companyUpdatePromocodeTitle": "Update promo code",
+  "companyUpdatePromocodeDescription": "Edit promo code information",
+  "companyCreatePromocodeTitle": "Create promo code",
+  "companyCreatePromocodeDescription": "New promo code creation form",
+  "companyCreateTokenTitle": "Create API Token",
+  "companyCreateTokenDescription": "New API token creation form",
+
+  "homeTitle": "Home",
+  "homeDescription": "List of promotions",
+  "no_promotions": "No promotions",
+
+  "promocodesTitle": "Promo codes",
+  "promocodesDescription": "My promocodes",
+  "promocodesUsed": "Used",
+  "promocodesActive": "Active",
+  "promocodesEmpty": "You don't have any promo codes yet",
+  "activated": "Activated",
+  "used": "Used",
+  "promocodeActivate": "ACTIVATE QR",
+  "promocodeShare": "SHARE QR",
+
+  "scannerTitle": "Scanner",
+  "scannerDescription": "Scan promo codes"
+}

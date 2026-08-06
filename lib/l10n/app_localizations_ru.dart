@@ -1,0 +1,262 @@
+// ignore: unused_import
+import 'package:intl/intl.dart' as intl;
+import 'app_localizations.dart';
+
+// ignore_for_file: type=lint
+
+/// The translations for Russian (`ru`).
+class AppLocalizationsRu extends AppLocalizations {
+  AppLocalizationsRu([String locale = 'ru']) : super(locale);
+
+  @override
+  String get appTitle => 'Flutter Demo';
+
+  @override
+  String appVersion(Object version, Object build, Object platform) {
+    return 'Версия приложения: v$version ($build) $platform';
+  }
+
+  @override
+  String authorizationAgreementPrefix(Object button) {
+    return 'Нажимая кнопку \"$button\", вы соглашаетесь с';
+  }
+
+  @override
+  String get termOfUse => 'условиями использования';
+
+  @override
+  String get privacyPolicy => 'политикой конфиденциальности';
+
+  @override
+  String get promocode => 'промокод';
+
+  @override
+  String get promocodes => 'Промокоды';
+
+  @override
+  String get no_promocodes => 'Нет промокодов';
+
+  @override
+  String get api_tokens => 'API токены';
+
+  @override
+  String get api_token => 'API токен';
+
+  @override
+  String get no_tokens => 'Нет API токенов';
+
+  @override
+  String get id => 'ID';
+
+  @override
+  String get company_id => 'ID компании';
+
+  @override
+  String get title => 'Название';
+
+  @override
+  String get name => 'Имя';
+
+  @override
+  String get code => 'Код';
+
+  @override
+  String get description => 'Описание';
+
+  @override
+  String get created_at => 'Дата создания';
+
+  @override
+  String get starts_at => 'Начало';
+
+  @override
+  String get expires_at => 'Истекает';
+
+  @override
+  String get discount_percent => 'Скидка %';
+
+  @override
+  String get discount_amount => 'Сумма скидки';
+
+  @override
+  String get usage_limit => 'Лимит использования';
+
+  @override
+  String get used_count => 'Использовано раз';
+
+  @override
+  String get is_active => 'Активен';
+
+  @override
+  String get created => 'Создано';
+
+  @override
+  String get qr_code => 'QR-код';
+
+  @override
+  String get hintSaveThisToken => 'Запишите токен безопасности и сохраните его в надежном месте. ЭТОТ ТОКЕН ВИДЕН ТОЛЬКО ПРИ СОЗДАНИИ!';
+
+  @override
+  String get userUpdateTitle => 'Обновление профиля пользователя';
+
+  @override
+  String get username => 'Имя пользователя';
+
+  @override
+  String get companyUpdateTitle => 'Обновление профиля компании';
+
+  @override
+  String get companyName => 'Название компании';
+
+  @override
+  String get and => 'и';
+
+  @override
+  String are_you_sure_to_delete(String item, String id) {
+    return 'Вы уверены, что хотите удалить этот $item?\n\nID: $id';
+  }
+
+  @override
+  String get ok => 'ОК';
+
+  @override
+  String get create => 'Создать';
+
+  @override
+  String get delete => 'Удалить';
+
+  @override
+  String get cancel => 'Отмена';
+
+  @override
+  String get edit => 'Изменить';
+
+  @override
+  String get save => 'Сохранить';
+
+  @override
+  String get update => 'Обновить';
+
+  @override
+  String get close => 'Закрыть';
+
+  @override
+  String get share => 'Поделиться';
+
+  @override
+  String get activate => 'Активировать';
+
+  @override
+  String get success => 'Успешно';
+
+  @override
+  String get warning => 'Предупреждение';
+
+  @override
+  String get unknownError => 'Неизвестная ошибка';
+
+  @override
+  String get connectionError => 'Не удалось подключиться к сервису';
+
+  @override
+  String get userIdIsNull => 'ID пользователя пуст';
+
+  @override
+  String get authorizationTitle => 'Авторизация аккаунта';
+
+  @override
+  String get authorizationDescription => 'Введите номер телефона';
+
+  @override
+  String get authorizationLoginTitle => 'Войти в аккаунт';
+
+  @override
+  String get authorizationRegisterTitle => 'Создать аккаунт';
+
+  @override
+  String get authorizationPhoneTitle => 'Номер телефона';
+
+  @override
+  String get authorizationGetCodeTitle => 'Получить код';
+
+  @override
+  String get authorizationCodeTitle => 'Подтверждение кода';
+
+  @override
+  String get authorizationPasteCodeDescription => 'Вставьте полученный код';
+
+  @override
+  String get authorizationLogoutTitle => 'Выйти';
+
+  @override
+  String get companyTitle => 'Компания';
+
+  @override
+  String get companyDescription => 'Настройки компании';
+
+  @override
+  String get companyCreatePromocode => 'Создать промокод';
+
+  @override
+  String get companyListPromocodes => 'Существующие промокоды';
+
+  @override
+  String get companyUpdatePromocodeTitle => 'Обновить промокод';
+
+  @override
+  String get companyUpdatePromocodeDescription => 'Редактирование информации о промокоде';
+
+  @override
+  String get companyCreatePromocodeTitle => 'Создать промокод';
+
+  @override
+  String get companyCreatePromocodeDescription => 'Форма создания нового промокода';
+
+  @override
+  String get companyCreateTokenTitle => 'Создать API токен';
+
+  @override
+  String get companyCreateTokenDescription => 'Форма создания нового API токена';
+
+  @override
+  String get homeTitle => 'Главная';
+
+  @override
+  String get homeDescription => 'Список акций';
+
+  @override
+  String get no_promotions => 'Нет акций';
+
+  @override
+  String get promocodesTitle => 'Промокоды';
+
+  @override
+  String get promocodesDescription => 'Мои промокоды';
+
+  @override
+  String get promocodesUsed => 'Использован';
+
+  @override
+  String get promocodesActive => 'Активен';
+
+  @override
+  String get promocodesEmpty => 'У вас пока нет промокодов';
+
+  @override
+  String get activated => 'Активирован';
+
+  @override
+  String get used => 'Использован';
+
+  @override
+  String get promocodeActivate => 'АКТИВИРОВАТЬ QR';
+
+  @override
+  String get promocodeShare => 'ПОДЕЛИТЬСЯ QR';
+
+  @override
+  String get scannerTitle => 'Сканер';
+
+  @override
+  String get scannerDescription => 'Сканировать промокоды';
+}

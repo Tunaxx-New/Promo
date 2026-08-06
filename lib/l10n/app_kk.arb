@@ -1,0 +1,122 @@
+{
+  "@@locale": "kk",
+  "appTitle": "Flutter Demo",
+  "appVersion": "Қолданба нұсқасы: v{version} ({build}) {platform}",
+  "@appVersion": {
+    "placeholders": {
+      "version": {},
+      "build": {},
+      "platform": {}
+    }
+  },
+  "authorizationAgreementPrefix": "\"{button}\" батырмасын басу арқылы сіз",
+  "@authorizationAgreementPrefix": {
+    "placeholders": {
+      "button": {}
+    }
+  },
+  "termOfUse": "пайдалану шарттарымен",
+  "privacyPolicy": "құпиялылық саясатымен",
+
+  "promocode": "промокод",
+  "promocodes": "Промокодтар",
+  "no_promocodes": "Промокодтар жоқ",
+  "api_tokens": "API токендер",
+  "api_token": "API токен",
+  "no_tokens": "API токендер жоқ",
+  "id": "ID",
+  "company_id": "Компания ID",
+  "title": "Атауы",
+  "name": "Аты",
+  "code": "Код",
+  "description": "Сипаттама",
+  "created_at": "Құрылған күні",
+  "starts_at": "Басталады",
+  "expires_at": "Аяқталады",
+  "discount_percent": "Жеңілдік %",
+  "discount_amount": "Жеңілдік сомасы",
+  "usage_limit": "Пайдалану шегі",
+  "used_count": "Пайдаланылған саны",
+  "is_active": "Белсенді",
+  "created": "Құрылды",
+  "qr_code": "QR-код",
+
+  "hintSaveThisToken": "Қауіпсіздік токенін жазып алып, сенімді жерде сақтаңыз. БҰЛ ТОКЕН ТЕК ҚҰРУ КЕЗІНДЕ ҒАНА КӨРІНЕДІ!",
+
+  "userUpdateTitle": "Пайдаланушы профилін жаңарту",
+  "username": "Пайдаланушы аты",
+
+  "companyUpdateTitle": "Компания профилін жаңарту",
+  "companyName": "Компания атауы",
+
+  "and": "және",
+
+  "are_you_sure_to_delete": "Осы {item} жойғыңыз келетініне сенімдісіз бе?\n\nID: {id}",
+  "@are_you_sure_to_delete": {
+    "placeholders": {
+      "item": {
+        "type": "String",
+        "example": "promocode"
+      },
+      "id": {
+        "type": "String",
+        "example": "uuid"
+      }
+    }
+  },
+
+  "ok": "ОК",
+  "create": "Құру",
+  "delete": "Жою",
+  "cancel": "Бас тарту",
+  "edit": "Өзгерту",
+  "save": "Сақтау",
+  "update": "Жаңарту",
+  "close": "Жабу",
+  "share": "Бөлісу",
+  "activate": "Белсендіру",
+  "success": "Сәтті",
+
+  "warning": "Ескерту",
+  "unknownError": "Белгісіз қате",
+  "connectionError": "Қызметке қосылу мүмкін емес",
+  "userIdIsNull": "Пайдаланушы ID бос",
+
+  "authorizationTitle": "Аккаунтты авторизациялау",
+  "authorizationDescription": "Телефон нөмірін енгізіңіз",
+  "authorizationLoginTitle": "Аккаунтқа кіру",
+  "authorizationRegisterTitle": "Аккаунт құру",
+  "authorizationPhoneTitle": "Телефон нөмірі",
+  "authorizationGetCodeTitle": "Кодты алу",
+  "authorizationCodeTitle": "Кодты растау",
+  "authorizationPasteCodeDescription": "Алынған кодты енгізіңіз",
+  "authorizationLogoutTitle": "Шығу",
+
+  "companyTitle": "Компания",
+  "companyDescription": "Компания баптаулары",
+  "companyCreatePromocode": "Промокод құру",
+  "companyListPromocodes": "Қолданыстағы промокодтар",
+  "companyUpdatePromocodeTitle": "Промокодты жаңарту",
+  "companyUpdatePromocodeDescription": "Промокод ақпаратын өңдеу",
+  "companyCreatePromocodeTitle": "Промокод құру",
+  "companyCreatePromocodeDescription": "Жаңа промокод құру формасы",
+  "companyCreateTokenTitle": "API токен құру",
+  "companyCreateTokenDescription": "Жаңа API токен құру формасы",
+
+  "homeTitle": "Басты бет",
+  "homeDescription": "Акциялар тізімі",
+  "no_promotions": "Акциялар жоқ",
+
+  "promocodesTitle": "Промокодтар",
+  "promocodesDescription": "Менің промокодтарым",
+  "promocodesUsed": "Пайдаланылды",
+  "promocodesActive": "Белсенді",
+  "promocodesEmpty": "Сізде әлі промокодтар жоқ",
+  "activated": "Белсендірілді",
+  "used": "Пайдаланылды",
+  "promocodeActivate": "QR БЕЛСЕНДІРУ",
+  "promocodeShare": "QR БӨЛІСУ",
+
+  "scannerTitle": "Сканер",
+  "scannerDescription": "Промокодтарды сканерлеу"
+}
