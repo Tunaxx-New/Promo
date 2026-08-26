@@ -2,11 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:promo/core/api/minio.dart';
 import 'package:promo/features/home/widgets/promotion_card.dart';
 import 'package:promo/shared/extensions/localization_extension.dart';
+import 'package:promo/shared/models/company.dart';
 import 'package:promo/shared/widgets/error_handler.dart';
 import 'package:promo/shared/widgets/promotions/promotions_service.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+  final List<Company> companies;
+  final Future<void> Function()? onRefresh;
+
+  const HomePage({super.key, required this.companies, this.onRefresh});
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -90,6 +94,8 @@ class _HomePageState extends State<HomePage> {
       setState(() {
         _loading = false;
       });
+    } finally {
+      await widget.onRefresh?.call();
     }
   }
 
@@ -103,6 +109,19 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     if (_loading) {
       return const Center(child: CircularProgressIndicator());
+    }
+
+    for (final promotion in _promotions) {
+      Company? company;
+
+      for (final item in widget.companies) {
+        if (item.id == promotion['company_id']) {
+          company = item;
+          break;
+        }
+      }
+      
+      promotion['company_name'] = company?.name ?? '-';
     }
 
     return Column(

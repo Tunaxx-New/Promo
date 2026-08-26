@@ -18,13 +18,14 @@ class RegisterForm extends StatelessWidget {
       route: '/auth/register',
       method: HttpMethod.post,
       fields: [
+        ApiField.text(key: 'name', label: context.l10n.name, required: true),
         ApiField.phone(
           key: 'phone',
           label: context.l10n.authorizationPhoneTitle,
           required: true,
         ),
       ],
-      onSuccess: (json) {
+      onSuccess: (json) async {
         Navigator.of(context).push(
           MaterialPageRoute(
             builder: (_) => CodeForm(

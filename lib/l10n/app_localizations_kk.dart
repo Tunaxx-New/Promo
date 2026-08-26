@@ -55,7 +55,7 @@ class AppLocalizationsKk extends AppLocalizations {
   String get title => 'Атауы';
 
   @override
-  String get name => 'Аты';
+  String get name => 'Толық аты-жөні';
 
   @override
   String get code => 'Код';
@@ -100,7 +100,7 @@ class AppLocalizationsKk extends AppLocalizations {
   String get userUpdateTitle => 'Пайдаланушы профилін жаңарту';
 
   @override
-  String get username => 'Пайдаланушы аты';
+  String get username => 'Толық аты-жөні';
 
   @override
   String get companyUpdateTitle => 'Компания профилін жаңарту';
@@ -259,4 +259,64 @@ class AppLocalizationsKk extends AppLocalizations {
 
   @override
   String get scannerDescription => 'Промокодтарды сканерлеу';
+
+  @override
+  String get myCards => 'Менің карталарым';
+
+  @override
+  String get unknownCompany => 'Белгісіз компания';
+
+  @override
+  String get bin => 'BIN';
+
+  @override
+  String get products => 'Өнімдер';
+
+  @override
+  String get bonusov => 'Бонустар';
+
+  @override
+  String get check => 'Чек';
+
+  @override
+  String get checkov => 'Чектер';
+
+  @override
+  String get bonuses => 'Бонустар';
+
+  @override
+  String get summary => 'Барлығы';
+
+  @override
+  String get written_off => 'Өшірілді';
+
+  @override
+  String get expired_off => 'Жанып кетеді';
+
+  @override
+  String get expires => 'Мерзімі аяқталады';
+
+  @override
+  String get expired => 'Мерзімі аяқталды';
+
+  @override
+  String get no => 'Жоқ';
+
+  @override
+  String get paymentSum => 'Сатып алу сомасы';
+
+  @override
+  String get bonusesAccured => 'Жиналған бонустар';
+
+  @override
+  String get code_active_for => 'Код белсенді';
+
+  @override
+  String get code_has_expired => 'Кодтың мерзімі бітті';
+
+  @override
+  String get refresh_in => 'Жаңарту арқылы';
+
+  @override
+  String get get_code_from_cassier => 'Кассадан кодты алыңыз';
 }

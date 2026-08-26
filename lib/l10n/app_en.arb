@@ -27,7 +27,7 @@
   "id": "ID",
   "company_id": "Company ID",
   "title": "Title",
-  "name": "Name",
+  "name": "Full name",
   "code": "Code",
   "description": "Description",
   "created_at": "Created at",
@@ -43,8 +43,8 @@
 
   "hintSaveThisToken": "Write security token, and save in some place. THIS TOKEN VISIBLE ONLY ON CREATION!",
 
-  "userUpdateTitle": "User update profile",
-  "username": "User name",
+  "userUpdateTitle": "Update profile",
+  "username": "Full name",
 
   "companyUpdateTitle": "Company update profile",
   "companyName": "Company name",
@@ -118,5 +118,27 @@
   "promocodeShare": "SHARE QR",
 
   "scannerTitle": "Scanner",
-  "scannerDescription": "Scan promo codes"
+  "scannerDescription": "Scan promo codes",
+
+  "myCards": "My cards",
+  "unknownCompany": "Unknown company",
+  "bin": "BIN",
+  "products": "Products",
+  "bonusov": "bonuses",
+  "check": "Check",
+  "checkov": "Checks",
+  "bonuses": "Bonuses",
+  "summary": "Summary",
+  "written_off": "Written off", 
+  "expired_off": "Will burn out",
+  "expires": "Expires",
+  "expired": "Expired",
+  "no": "No",
+  "paymentSum": "Payment sum",
+  "bonusesAccured": "Bonuses accured",
+
+  "code_active_for": "The code is active for",
+  "code_has_expired": "The code has expired",
+  "refresh_in": "Refresh in",
+  "get_code_from_cassier": "Get code from cassier"
 }

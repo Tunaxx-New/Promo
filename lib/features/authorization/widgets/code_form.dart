@@ -36,7 +36,7 @@ class CodeForm extends StatelessWidget {
           fields: [
             ApiField.code(
               key: 'code',
-              label: context.l10n.authorizationPhoneTitle,
+              label: context.l10n.authorizationCodeTitle,
               required: true,
             ),
             ApiField.hidden(key: 'user_id', initialValue: userId),

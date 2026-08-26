@@ -55,7 +55,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get title => 'Title';
 
   @override
-  String get name => 'Name';
+  String get name => 'Full name';
 
   @override
   String get code => 'Code';
@@ -97,10 +97,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get hintSaveThisToken => 'Write security token, and save in some place. THIS TOKEN VISIBLE ONLY ON CREATION!';
 
   @override
-  String get userUpdateTitle => 'User update profile';
+  String get userUpdateTitle => 'Update profile';
 
   @override
-  String get username => 'User name';
+  String get username => 'Full name';
 
   @override
   String get companyUpdateTitle => 'Company update profile';
@@ -259,4 +259,64 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get scannerDescription => 'Scan promo codes';
+
+  @override
+  String get myCards => 'My cards';
+
+  @override
+  String get unknownCompany => 'Unknown company';
+
+  @override
+  String get bin => 'BIN';
+
+  @override
+  String get products => 'Products';
+
+  @override
+  String get bonusov => 'bonuses';
+
+  @override
+  String get check => 'Check';
+
+  @override
+  String get checkov => 'Checks';
+
+  @override
+  String get bonuses => 'Bonuses';
+
+  @override
+  String get summary => 'Summary';
+
+  @override
+  String get written_off => 'Written off';
+
+  @override
+  String get expired_off => 'Will burn out';
+
+  @override
+  String get expires => 'Expires';
+
+  @override
+  String get expired => 'Expired';
+
+  @override
+  String get no => 'No';
+
+  @override
+  String get paymentSum => 'Payment sum';
+
+  @override
+  String get bonusesAccured => 'Bonuses accured';
+
+  @override
+  String get code_active_for => 'The code is active for';
+
+  @override
+  String get code_has_expired => 'The code has expired';
+
+  @override
+  String get refresh_in => 'Refresh in';
+
+  @override
+  String get get_code_from_cassier => 'Get code from cassier';
 }

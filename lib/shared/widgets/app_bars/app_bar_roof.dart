@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:promo/shared/theme/app_colors.dart';
 
 class AppBarRoof extends StatelessWidget implements PreferredSizeWidget {
   final String title;
@@ -69,14 +70,14 @@ class AppBarRoof extends StatelessWidget implements PreferredSizeWidget {
                   style: const TextStyle(
                     fontSize: 21,
                     fontWeight: FontWeight.normal,
-                    color: Colors.white,
+                    color: AppColors.textColorOnBackground,
                   ),
                 ),
                 if (description != null) ...[
                   const SizedBox(height: 6),
                   Text(
                     description!,
-                    style: const TextStyle(fontSize: 12, color: Colors.white70),
+                    style: const TextStyle(fontSize: 12, color: AppColors.textColorOnBackgroundLight),
                   ),
                 ],
               ],

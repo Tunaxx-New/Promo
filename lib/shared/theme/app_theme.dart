@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:promo/shared/theme/app_colors.dart';
 
 class AppTheme {
   static ThemeData light() {
@@ -9,11 +10,11 @@ class AppTheme {
           seedColor: primary,
           brightness: Brightness.light,
         ).copyWith(
-          primary: const Color(0xFFFF6B35), // warm orange-red
-          onPrimary: Colors.white,
+          primary: AppColors.primary, // warm orange-red
+          onPrimary: AppColors.onPrimary,
 
-          secondary: const Color(0xFFFFB000), // amber
-          onSecondary: Colors.black,
+          secondary: AppColors.secondary, // amber
+          onSecondary: AppColors.onSecondary,
           
           surface: const Color(0xFFF5F5F5),
           surfaceContainer: const Color(0xFFF0F0F0),

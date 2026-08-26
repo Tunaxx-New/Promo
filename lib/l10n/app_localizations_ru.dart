@@ -55,7 +55,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get title => 'Название';
 
   @override
-  String get name => 'Имя';
+  String get name => 'ФИО';
 
   @override
   String get code => 'Код';
@@ -97,10 +97,10 @@ class AppLocalizationsRu extends AppLocalizations {
   String get hintSaveThisToken => 'Запишите токен безопасности и сохраните его в надежном месте. ЭТОТ ТОКЕН ВИДЕН ТОЛЬКО ПРИ СОЗДАНИИ!';
 
   @override
-  String get userUpdateTitle => 'Обновление профиля пользователя';
+  String get userUpdateTitle => 'Профиля пользователя';
 
   @override
-  String get username => 'Имя пользователя';
+  String get username => 'ФИО';
 
   @override
   String get companyUpdateTitle => 'Обновление профиля компании';
@@ -259,4 +259,64 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get scannerDescription => 'Сканировать промокоды';
+
+  @override
+  String get myCards => 'Мои карточки';
+
+  @override
+  String get unknownCompany => 'Неизвестная компания';
+
+  @override
+  String get bin => 'БИН';
+
+  @override
+  String get products => 'Товары';
+
+  @override
+  String get bonusov => 'Бонусы';
+
+  @override
+  String get check => 'Чек';
+
+  @override
+  String get checkov => 'Чеков';
+
+  @override
+  String get bonuses => 'Бонусы';
+
+  @override
+  String get summary => 'Итого';
+
+  @override
+  String get written_off => 'Списано';
+
+  @override
+  String get expired_off => 'Сгорит';
+
+  @override
+  String get expires => 'Сгорит';
+
+  @override
+  String get expired => 'Сгорело';
+
+  @override
+  String get no => 'Нет';
+
+  @override
+  String get paymentSum => 'Сумма покупки';
+
+  @override
+  String get bonusesAccured => 'Начислено бонусов';
+
+  @override
+  String get code_active_for => 'Код активен ещё';
+
+  @override
+  String get code_has_expired => 'Срок действия кода истёк';
+
+  @override
+  String get refresh_in => 'Обновить через';
+
+  @override
+  String get get_code_from_cassier => 'Получить код с кассы';
 }

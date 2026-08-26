@@ -85,6 +85,10 @@ class ApiClient {
         return {'data': decoded};
       }
 
+      if (decoded is String || decoded is int) {
+        return {'value': decoded};
+      }
+
       return {};
     }
 

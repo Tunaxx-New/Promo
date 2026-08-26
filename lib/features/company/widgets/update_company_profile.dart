@@ -19,8 +19,8 @@ class UpdateCompanyProfileWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppBarRoof(
-      title: context.l10n.companyUpdatePromocodeTitle,
-      description: context.l10n.companyUpdatePromocodeDescription,
+      title: context.l10n.companyUpdateTitle,
+      description: context.l10n.companyUpdateTitle,
       showBackButton: true,
       child: Padding(
         padding: const EdgeInsets.all(16),

@@ -184,7 +184,7 @@ abstract class AppLocalizations {
   /// No description provided for @name.
   ///
   /// In en, this message translates to:
-  /// **'Name'**
+  /// **'Full name'**
   String get name;
 
   /// No description provided for @code.
@@ -268,13 +268,13 @@ abstract class AppLocalizations {
   /// No description provided for @userUpdateTitle.
   ///
   /// In en, this message translates to:
-  /// **'User update profile'**
+  /// **'Update profile'**
   String get userUpdateTitle;
 
   /// No description provided for @username.
   ///
   /// In en, this message translates to:
-  /// **'User name'**
+  /// **'Full name'**
   String get username;
 
   /// No description provided for @companyUpdateTitle.
@@ -588,6 +588,126 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Scan promo codes'**
   String get scannerDescription;
+
+  /// No description provided for @myCards.
+  ///
+  /// In en, this message translates to:
+  /// **'My cards'**
+  String get myCards;
+
+  /// No description provided for @unknownCompany.
+  ///
+  /// In en, this message translates to:
+  /// **'Unknown company'**
+  String get unknownCompany;
+
+  /// No description provided for @bin.
+  ///
+  /// In en, this message translates to:
+  /// **'BIN'**
+  String get bin;
+
+  /// No description provided for @products.
+  ///
+  /// In en, this message translates to:
+  /// **'Products'**
+  String get products;
+
+  /// No description provided for @bonusov.
+  ///
+  /// In en, this message translates to:
+  /// **'bonuses'**
+  String get bonusov;
+
+  /// No description provided for @check.
+  ///
+  /// In en, this message translates to:
+  /// **'Check'**
+  String get check;
+
+  /// No description provided for @checkov.
+  ///
+  /// In en, this message translates to:
+  /// **'Checks'**
+  String get checkov;
+
+  /// No description provided for @bonuses.
+  ///
+  /// In en, this message translates to:
+  /// **'Bonuses'**
+  String get bonuses;
+
+  /// No description provided for @summary.
+  ///
+  /// In en, this message translates to:
+  /// **'Summary'**
+  String get summary;
+
+  /// No description provided for @written_off.
+  ///
+  /// In en, this message translates to:
+  /// **'Written off'**
+  String get written_off;
+
+  /// No description provided for @expired_off.
+  ///
+  /// In en, this message translates to:
+  /// **'Will burn out'**
+  String get expired_off;
+
+  /// No description provided for @expires.
+  ///
+  /// In en, this message translates to:
+  /// **'Expires'**
+  String get expires;
+
+  /// No description provided for @expired.
+  ///
+  /// In en, this message translates to:
+  /// **'Expired'**
+  String get expired;
+
+  /// No description provided for @no.
+  ///
+  /// In en, this message translates to:
+  /// **'No'**
+  String get no;
+
+  /// No description provided for @paymentSum.
+  ///
+  /// In en, this message translates to:
+  /// **'Payment sum'**
+  String get paymentSum;
+
+  /// No description provided for @bonusesAccured.
+  ///
+  /// In en, this message translates to:
+  /// **'Bonuses accured'**
+  String get bonusesAccured;
+
+  /// No description provided for @code_active_for.
+  ///
+  /// In en, this message translates to:
+  /// **'The code is active for'**
+  String get code_active_for;
+
+  /// No description provided for @code_has_expired.
+  ///
+  /// In en, this message translates to:
+  /// **'The code has expired'**
+  String get code_has_expired;
+
+  /// No description provided for @refresh_in.
+  ///
+  /// In en, this message translates to:
+  /// **'Refresh in'**
+  String get refresh_in;
+
+  /// No description provided for @get_code_from_cassier.
+  ///
+  /// In en, this message translates to:
+  /// **'Get code from cassier'**
+  String get get_code_from_cassier;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

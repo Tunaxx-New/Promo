@@ -27,7 +27,7 @@
   "id": "ID",
   "company_id": "Компания ID",
   "title": "Атауы",
-  "name": "Аты",
+  "name": "Толық аты-жөні",
   "code": "Код",
   "description": "Сипаттама",
   "created_at": "Құрылған күні",
@@ -44,7 +44,7 @@
   "hintSaveThisToken": "Қауіпсіздік токенін жазып алып, сенімді жерде сақтаңыз. БҰЛ ТОКЕН ТЕК ҚҰРУ КЕЗІНДЕ ҒАНА КӨРІНЕДІ!",
 
   "userUpdateTitle": "Пайдаланушы профилін жаңарту",
-  "username": "Пайдаланушы аты",
+  "username": "Толық аты-жөні",
 
   "companyUpdateTitle": "Компания профилін жаңарту",
   "companyName": "Компания атауы",
@@ -118,5 +118,27 @@
   "promocodeShare": "QR БӨЛІСУ",
 
   "scannerTitle": "Сканер",
-  "scannerDescription": "Промокодтарды сканерлеу"
+  "scannerDescription": "Промокодтарды сканерлеу",
+
+  "myCards": "Менің карталарым",
+  "unknownCompany": "Белгісіз компания",
+  "bin": "BIN",
+  "products": "Өнімдер",
+  "bonusov": "Бонустар",
+  "check": "Чек",
+  "checkov": "Чектер",
+  "bonuses": "Бонустар",
+  "summary": "Барлығы",
+  "written_off": "Өшірілді",
+  "expired_off": "Жанып кетеді",
+  "expires": "Мерзімі аяқталады",
+  "expired": "Мерзімі аяқталды",
+  "no": "Жоқ",
+  "paymentSum": "Сатып алу сомасы",
+  "bonusesAccured": "Жиналған бонустар",
+
+  "code_active_for": "Код белсенді",
+  "code_has_expired": "Кодтың мерзімі бітті",
+  "refresh_in": "Жаңарту арқылы",
+  "get_code_from_cassier": "Кассадан кодты алыңыз"
 }

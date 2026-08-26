@@ -27,7 +27,7 @@
   "id": "ID",
   "company_id": "ID компании",
   "title": "Название",
-  "name": "Имя",
+  "name": "ФИО",
   "code": "Код",
   "description": "Описание",
   "created_at": "Дата создания",
@@ -43,8 +43,8 @@
 
   "hintSaveThisToken": "Запишите токен безопасности и сохраните его в надежном месте. ЭТОТ ТОКЕН ВИДЕН ТОЛЬКО ПРИ СОЗДАНИИ!",
 
-  "userUpdateTitle": "Обновление профиля пользователя",
-  "username": "Имя пользователя",
+  "userUpdateTitle": "Профиля пользователя",
+  "username": "ФИО",
 
   "companyUpdateTitle": "Обновление профиля компании",
   "companyName": "Название компании",
@@ -118,5 +118,27 @@
   "promocodeShare": "ПОДЕЛИТЬСЯ QR",
 
   "scannerTitle": "Сканер",
-  "scannerDescription": "Сканировать промокоды"
+  "scannerDescription": "Сканировать промокоды",
+
+  "myCards": "Мои карточки",
+  "unknownCompany": "Неизвестная компания",
+  "bin": "БИН",
+  "products": "Товары",
+  "bonusov": "Бонусы",
+  "check": "Чек",
+  "checkov": "Чеков",
+  "bonuses": "Бонусы",
+  "summary": "Итого",
+  "written_off": "Списано",
+  "expired_off": "Сгорит",
+  "expires": "Сгорит",
+  "expired": "Сгорело",
+  "no": "Нет",
+  "paymentSum": "Сумма покупки",
+  "bonusesAccured": "Начислено бонусов",
+
+  "code_active_for": "Код активен ещё",
+  "code_has_expired": "Срок действия кода истёк",
+  "refresh_in": "Обновить через",
+  "get_code_from_cassier": "Получить код с кассы"
 }

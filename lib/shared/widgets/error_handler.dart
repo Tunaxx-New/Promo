@@ -7,7 +7,7 @@ import 'package:promo/shared/widgets/api_form/api_exception.dart';
 class ErrorHandler {
   static void show(BuildContext context, Object error) {
     if (!context.mounted) return;
-
+    
     String message;
     switch (error) {
       case ApiException e:
@@ -20,7 +20,7 @@ class ErrorHandler {
         message = e.message;
 
       default:
-        message = context.l10n.unknownError;
+        message = error.toString();//context.l10n.unknownError;
     }
 
     ScaffoldMessenger.of(context)

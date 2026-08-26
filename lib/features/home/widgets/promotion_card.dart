@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:promo/shared/extensions/localization_extension.dart';
 import 'package:promo/shared/formatters/form_date.dart';
 
 class PromotionCard extends StatelessWidget {
@@ -48,9 +49,9 @@ class PromotionCard extends StatelessWidget {
 
                         const SizedBox(height: 12),
 
-                        _field('Company ID', promotion['company_id']),
+                        _field(context.l10n.companyTitle, promotion['company_name']),
 
-                        _field('Created at', promotion['created_at']),
+                        _field(context.l10n.created_at, promotion['created_at']),
 
                         const SizedBox(height: 12),
 
@@ -68,7 +69,7 @@ class PromotionCard extends StatelessWidget {
           actions: [
             TextButton(
               onPressed: () => Navigator.pop(context),
-              child: const Text('Close'),
+              child: Text(context.l10n.close),
             ),
           ],
         );
@@ -134,12 +135,12 @@ class PromotionCard extends StatelessWidget {
 
                   const SizedBox(height: 8),
 
-                  Text('Company: ${promotion['company_id'] ?? '-'}'),
+                  Text('${context.l10n.companyTitle}: ${promotion['name'] ?? '-'}'),
 
                   const SizedBox(height: 4),
 
                   Text(
-                    'Created: ${promotion['created_at'] != null ? formatDate(promotion['created_at']) : '-'}',
+                    '${context.l10n.created_at}: ${promotion['created_at'] != null ? formatDate(promotion['created_at']) : '-'}',
                     style: Theme.of(context).textTheme.bodySmall,
                   ),
                 ],

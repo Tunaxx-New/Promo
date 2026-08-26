@@ -1,15 +1,27 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:promo/app/app.dart';
+import 'package:promo/app/routes.dart';
 import 'package:promo/core/api/api.dart';
+import 'package:promo/core/api/minio.dart';
 import 'package:promo/features/authorization/widgets/update_user_profile.dart';
+import 'package:promo/features/cards/cards_page.dart';
 
 import 'package:promo/features/home/home_page.dart';
 import 'package:promo/features/scanner/scanner_page.dart';
 import 'package:promo/features/promocodes/promocodes_page.dart';
 import 'package:promo/features/company/company_page.dart';
+import 'package:promo/shared/models/company.dart';
+import 'package:promo/shared/models/payment_check.dart';
+import 'package:promo/shared/models/user_card.dart';
+import 'package:promo/shared/widgets/bonuses/bonuses_details.dart';
+import 'package:promo/shared/widgets/bonuses/bonuses_plate.dart';
 import 'package:promo/shared/extensions/localization_extension.dart';
 import 'package:promo/shared/widgets/api_form/http_method.dart';
 import 'package:promo/shared/widgets/authorization/authorization_service.dart';
+import 'package:promo/shared/widgets/card/card_plate.dart';
 import 'package:promo/shared/widgets/error_handler.dart';
 import 'package:promo/shared/widgets/loading/loading_overlay.dart';
 import 'package:promo/shared/widgets/user/user_service.dart';
@@ -24,6 +36,7 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   final _auth = AuthorizationService();
   final _user = UserService();
+  final _minio = MinioStorage();
 
   int _currentIndex = 0;
 
@@ -31,10 +44,91 @@ class _MainPageState extends State<MainPage> {
 
   String? _activatedPromocodeId;
 
+  List<Company> _companies = [];
+  int _selectedCompanyIndex = 0;
+
+  double _bonuses = 0.0;
+
+  List<dynamic> _composePromocodes = [];
+  int _selectedComposePromocodesIndex = 0;
+
+  final List<PaymentCheck> _checks = [];
+
+  final List<UserCard> _cards = [];
+
+  String? _cardCode;
+  int _cardCodeVersion = 0;
+  Timer? _cardCodeTimer;
+
   @override
   void initState() {
     super.initState();
-    _loadUser();
+    _refresh();
+
+    _cardCodeTimer = Timer.periodic(
+      const Duration(seconds: 5),
+      (_) => _loadCardCode(),
+    );
+  }
+
+  @override
+  void dispose() {
+    _cardCodeTimer?.cancel();
+    super.dispose();
+  }
+
+  Future<void> _refresh() async {
+    await Future.wait([
+      _loadCompanies(),
+      _loadComposePromocodes(),
+      _loadChecks(),
+    ]);
+    await _loadUser();
+    await _loadCardCode();
+  }
+
+  Future<void> _loadComposePromocodes() async {
+    try {
+      final response = await api.request(
+        route: '/promo/promocode/my',
+        method: HttpMethod.get,
+      );
+
+      setState(() {
+        _composePromocodes = List<dynamic>.from(response['data']);
+      });
+    } catch (e) {
+      ErrorHandler.show(context, e);
+
+      setState(() {
+        _composePromocodes = [];
+      });
+    }
+  }
+
+  Future<void> _loadCompanies() async {
+    try {
+      final response = await api.request(
+        route: '/promo/list_companies',
+        method: HttpMethod.get,
+      );
+
+      setState(() {
+        _companies
+          ..clear()
+          ..addAll(
+            (response['data'] as List)
+                .map((item) => Company.fromJson(item))
+                .toList(),
+          );
+      });
+    } catch (e) {
+      ErrorHandler.show(context, e);
+
+      setState(() {
+        _companies.clear();
+      });
+    }
   }
 
   Future<void> _loadUser() async {
@@ -49,12 +143,103 @@ class _MainPageState extends State<MainPage> {
 
       setState(() {
         _isCompany = response['company_id'] != null;
+        _cards
+          ..clear()
+          ..addAll(
+            (response['cards'] as List).map((item) {
+              Company? company;
+              for (final item_ in _companies) {
+                if (item_.bin == item['company_bin']) {
+                  company = item_;
+                  break;
+                }
+              }
+
+              double bonusesSum = 0.0;
+              _bonuses = 0.0;
+
+              for (final check in _checks) {
+                _bonuses += check.bonusSum;
+
+                if (item['card_id'] == check.cardId) {
+                  bonusesSum += check.bonusSum;
+                }
+              }
+
+              return UserCard.fromJson(item, company, bonusesSum);
+            }).toList(),
+          );
       });
     } catch (e) {
+      if (!mounted) return;
+      ErrorHandler.show(context, e);
+      setState(() {
+        _isCompany = false;
+        _bonuses = 0;
+        _cards.clear();
+      });
+    }
+  }
+
+  Future<void> _loadChecks() async {
+    try {
+      final response = await api.request(
+        route: '/bonuses/checks',
+        method: HttpMethod.get,
+      );
+
+      setState(() {
+        _checks
+          ..clear()
+          ..addAll(
+            (response['data'] as List).map((item) {
+              Company? company;
+
+              for (final item_ in _companies) {
+                if (item_.bin == item['company_bin']) {
+                  company = item_;
+                  break;
+                }
+              }
+
+              return PaymentCheck.fromJson(item);
+            }).toList(),
+          );
+      });
+    } catch (e) {
+      if (!mounted) return;
+
       ErrorHandler.show(context, e);
 
       setState(() {
-        _isCompany = false;
+        _checks.clear();
+      });
+    }
+  }
+
+  Future<void> _loadCardCode() async {
+    try {
+      final response = await api.request(
+        route: '/auth/card_code/get',
+        method: HttpMethod.get,
+      );
+
+      if (!mounted) return;
+
+      _cardCodeTimer?.cancel();
+      _cardCodeTimer = null;
+
+      setState(() {
+        _cardCode = response['value'].toString();
+        _cardCodeVersion++;
+      });
+    } catch (e) {
+      if (!mounted) return;
+
+      // ErrorHandler.show(context, e);
+
+      setState(() {
+        _cardCode = null;
       });
     }
   }
@@ -64,7 +249,7 @@ class _MainPageState extends State<MainPage> {
     final loading = _isCompany == null;
 
     final pages = [
-      const HomePage(),
+      HomePage(onRefresh: _refresh, companies: _companies),
       ScannerPage(
         isActive: _currentIndex == 1,
         onPromocodeActivated: (id) {
@@ -74,14 +259,16 @@ class _MainPageState extends State<MainPage> {
           });
         },
       ),
-      PromocodesPage(activatedPromocodeId: _activatedPromocodeId),
+      CardsPage(onRefresh: _refresh, cards: _cards),
+      // PromocodesPage(activatedPromocodeId: _activatedPromocodeId),
       if (_isCompany == true) const CompanyPage(),
     ];
 
     final titles = [
       context.l10n.homeTitle,
       context.l10n.scannerTitle,
-      context.l10n.promocodesTitle,
+      context.l10n.myCards,
+      // context.l10n.promocodesTitle,
       if (_isCompany == true) context.l10n.companyTitle,
     ];
 
@@ -188,7 +375,56 @@ class _MainPageState extends State<MainPage> {
             ),
           ],
         ),
-        body: IndexedStack(index: _currentIndex, children: pages),
+        body: Column(
+          children: [
+            if (_currentIndex == 0)
+              Column(
+                children: [
+                  if (_companies.isNotEmpty &&
+                      _companies.length - 1 >= _selectedCompanyIndex)
+                    BonusesPlate(
+                      bonusSum: _bonuses,
+                      imageUrl: _minio.imageUrlFromBucket(
+                        'companies',
+                        '${_companies[_selectedCompanyIndex].id}.png',
+                      ),
+                      onTap: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (_) => BonusesDetails(checks: _checks),
+                          ),
+                        );
+                      },
+                      onUpdate: () async {
+                        await _loadUser();
+                      },
+                    ),
+
+                  if (_cardCode != null)
+                    CardPlate(
+                      barcode: _cardCode!,
+                      onExpired: _loadCardCode,
+                      key: ValueKey(_cardCodeVersion),
+                    )
+                  else
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 16,
+                        vertical: 12,
+                      ),
+                      child: ElevatedButton(
+                        onPressed: _loadCardCode,
+                        child: Text(context.l10n.get_code_from_cassier),
+                      ),
+                    ),
+                ],
+              ),
+
+            Expanded(
+              child: IndexedStack(index: _currentIndex, children: pages),
+            ),
+          ],
+        ),
         bottomNavigationBar: BottomNavigationBar(
           key: ValueKey(_isCompany),
           type: BottomNavigationBarType.fixed,
@@ -208,10 +444,15 @@ class _MainPageState extends State<MainPage> {
               label: context.l10n.scannerTitle,
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.local_offer_outlined),
-              activeIcon: Icon(Icons.local_offer),
-              label: context.l10n.promocodesDescription,
+              icon: Icon(Icons.card_giftcard),
+              activeIcon: Icon(Icons.card_giftcard),
+              label: context.l10n.myCards,
             ),
+            //BottomNavigationBarItem(
+            //  icon: Icon(Icons.local_offer_outlined),
+            //  activeIcon: Icon(Icons.local_offer),
+            //  label: context.l10n.promocodesDescription,
+            //),
             if (_isCompany == true)
               BottomNavigationBarItem(
                 icon: Icon(Icons.business_outlined),
