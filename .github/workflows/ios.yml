@@ -23,6 +23,16 @@ jobs:
       - name: Flutter version
         run: flutter --version
 
+      - name: Debug iOS configuration
+        working-directory: ios
+        run: |
+          echo "=== Podfile ==="
+          cat Podfile
+          echo "=== AppFrameworkInfo.plist ==="
+          cat Flutter/AppFrameworkInfo.plist
+          echo "=== Deployment targets ==="
+          grep -R "IPHONEOS_DEPLOYMENT_TARGET" Runner.xcodeproj || true
+
       - name: Install dependencies
         run: flutter pub get
 
