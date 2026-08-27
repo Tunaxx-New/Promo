@@ -15,7 +15,7 @@ class AppTheme {
 
           secondary: AppColors.secondary, // amber
           onSecondary: AppColors.onSecondary,
-          
+
           surface: const Color(0xFFF5F5F5),
           surfaceContainer: const Color(0xFFF0F0F0),
           surfaceContainerLow: const Color(0xFFF3F3F3),
@@ -26,6 +26,12 @@ class AppTheme {
     return ThemeData(
       useMaterial3: true,
       colorScheme: colorScheme,
+
+      elevatedButtonTheme: ElevatedButtonThemeData(
+        style: ElevatedButton.styleFrom(
+          foregroundColor: Colors.black,
+        ),
+      ),
 
       scaffoldBackgroundColor: colorScheme.surface,
 

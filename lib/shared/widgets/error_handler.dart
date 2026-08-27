@@ -5,10 +5,11 @@ import 'package:promo/shared/extensions/localization_extension.dart';
 import 'package:promo/shared/widgets/api_form/api_exception.dart';
 
 class ErrorHandler {
-  static void show(BuildContext context, Object error) {
+  static void show(BuildContext context, Object error, {Color? color}) {
     if (!context.mounted) return;
     
     String message;
+
     switch (error) {
       case ApiException e:
         message = e.message ?? context.l10n.unknownError;
@@ -20,7 +21,7 @@ class ErrorHandler {
         message = e.message;
 
       default:
-        message = error.toString();//context.l10n.unknownError;
+        message = context.l10n.unknownError;
     }
 
     ScaffoldMessenger.of(context)
@@ -28,7 +29,7 @@ class ErrorHandler {
       ..showSnackBar(
         SnackBar(
           duration: const Duration(seconds: 4),
-          backgroundColor: Colors.red.shade700,
+          backgroundColor: color ?? Colors.red.shade700,
           content: Row(
             children: [
               const Icon(Icons.error_outline, color: Colors.white),

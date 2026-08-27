@@ -124,7 +124,7 @@ class _BonusesSummary extends StatelessWidget {
                     ),
                     const SizedBox(height: 6),
                     Text(
-                      '+$bonusSum',
+                      '+${bonusSum.toStringAsFixed(2).replaceFirst(RegExp(r'\.?0+$'), '')}',
                       style: theme.textTheme.titleLarge?.copyWith(
                         fontWeight: FontWeight.bold,
                         color: Colors.green,
@@ -139,7 +139,7 @@ class _BonusesSummary extends StatelessWidget {
                   Text(context.l10n.checkov, style: theme.textTheme.bodyMedium),
                   const SizedBox(height: 6),
                   Text(
-                    '$checksCount',
+                    '${checksCount.toStringAsFixed(2).replaceFirst(RegExp(r'\.?0+$'), '')}',
                     style: theme.textTheme.titleLarge?.copyWith(
                       fontWeight: FontWeight.bold,
                     ),
@@ -235,7 +235,7 @@ class _BonusValue extends StatelessWidget {
         Text(label),
         const SizedBox(height: 4),
         Text(
-          '$value B',
+          '${value.toStringAsFixed(2).replaceFirst(RegExp(r'\.?0+$'), '')} B',
           style: Theme.of(context).textTheme.titleMedium?.copyWith(
             fontWeight: FontWeight.bold,
             color: color,

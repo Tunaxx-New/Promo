@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:promo/core/api/api.dart';
 import 'package:promo/features/authorization/widgets/code_form.dart';
 import 'package:promo/shared/extensions/localization_extension.dart';
+import 'package:promo/shared/widgets/api_form/api_exception.dart';
 import 'package:promo/shared/widgets/api_form/api_form.dart';
 import 'package:promo/shared/widgets/api_form/api_field.dart';
 import 'package:promo/shared/widgets/api_form/http_method.dart';
@@ -34,6 +35,31 @@ class RegisterForm extends StatelessWidget {
             ),
           ),
         );
+      },
+      errorColors: {409: Colors.green},
+      onError: (e, data) async {
+        if (e is ApiException && e.statusCode == 409) {
+          final json = await api.request(
+            route: '/auth/resend-registration-code',
+            method: HttpMethod.post,
+            body: {
+              'phone': data['phone'],
+              'platform': 'GREENAPI',
+              'action': 'reset_token',
+            },
+          );
+
+          if (!context.mounted) return;
+
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (_) => CodeForm(
+                userId: json['user_id'].toString(),
+                action: 'reset_token',
+              ),
+            ),
+          );
+        }
       },
     );
   }

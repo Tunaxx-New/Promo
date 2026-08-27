@@ -67,7 +67,7 @@ class _MainPageState extends State<MainPage> {
 
     _cardCodeTimer = Timer.periodic(
       const Duration(seconds: 5),
-      (_) => _loadCardCode(),
+      (_) => _loadCardCode(isShowError: false),
     );
   }
 
@@ -77,14 +77,33 @@ class _MainPageState extends State<MainPage> {
     super.dispose();
   }
 
+  Future<T> _measure<T>(String name, Future<T> Function() action) async {
+    final stopwatch = Stopwatch()..start();
+
+    try {
+      return await action();
+    } finally {
+      stopwatch.stop();
+      debugPrint('⏱ $name: ${stopwatch.elapsedMilliseconds} ms');
+    }
+  }
+
   Future<void> _refresh() async {
+    _isCompany = null;
+    final total = Stopwatch()..start();
+
     await Future.wait([
-      _loadCompanies(),
-      _loadComposePromocodes(),
-      _loadChecks(),
+      _measure('loadCompanies', _loadCompanies),
+      _measure('loadComposePromocodes', _loadComposePromocodes),
+      _measure('loadChecks', _loadChecks),
     ]);
-    await _loadUser();
-    await _loadCardCode();
+
+    await _measure('loadUser', _loadUser);
+    await _measure('loadCardCode', () => _loadCardCode(isShowError: false));
+
+    total.stop();
+
+    debugPrint('⏱ TOTAL refresh: ${total.elapsedMilliseconds} ms');
   }
 
   Future<void> _loadComposePromocodes() async {
@@ -217,7 +236,7 @@ class _MainPageState extends State<MainPage> {
     }
   }
 
-  Future<void> _loadCardCode() async {
+  Future<void> _loadCardCode({bool isShowError = true}) async {
     try {
       final response = await api.request(
         route: '/auth/card_code/get',
@@ -236,7 +255,7 @@ class _MainPageState extends State<MainPage> {
     } catch (e) {
       if (!mounted) return;
 
-      // ErrorHandler.show(context, e);
+      if (isShowError) ErrorHandler.show(context, e);
 
       setState(() {
         _cardCode = null;
@@ -249,27 +268,29 @@ class _MainPageState extends State<MainPage> {
     final loading = _isCompany == null;
 
     final pages = [
-      HomePage(onRefresh: _refresh, companies: _companies),
-      ScannerPage(
-        isActive: _currentIndex == 1,
-        onPromocodeActivated: (id) {
-          setState(() {
-            _activatedPromocodeId = id;
-            _currentIndex = 2;
-          });
-        },
-      ),
+      //HomePage(onRefresh: _refresh, companies: _companies),
+      //ScannerPage(
+      //  isActive: _currentIndex == 1,
+      //  onPromocodeActivated: (id) {
+      //    setState(() {
+      //      _activatedPromocodeId = id;
+      //      _currentIndex = 2;
+      //    });
+      //  },
+      //),
       CardsPage(onRefresh: _refresh, cards: _cards),
       // PromocodesPage(activatedPromocodeId: _activatedPromocodeId),
       if (_isCompany == true) const CompanyPage(),
+      const SizedBox.shrink(),
     ];
 
     final titles = [
-      context.l10n.homeTitle,
-      context.l10n.scannerTitle,
+      // context.l10n.homeTitle,
+      // context.l10n.scannerTitle,
       context.l10n.myCards,
       // context.l10n.promocodesTitle,
       if (_isCompany == true) context.l10n.companyTitle,
+      '',
     ];
 
     return LoadingOverlay(
@@ -412,11 +433,29 @@ class _MainPageState extends State<MainPage> {
                         horizontal: 16,
                         vertical: 12,
                       ),
-                      child: ElevatedButton(
-                        onPressed: _loadCardCode,
-                        child: Text(context.l10n.get_code_from_cassier),
+                      child: SizedBox(
+                        width: double.infinity,
+                        height: 48,
+                        child: ElevatedButton(
+                          onPressed: _loadCardCode,
+                          child: Text(context.l10n.get_code_from_cassier),
+                        ),
                       ),
                     ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 16,
+                      vertical: 12,
+                    ),
+                    child: SizedBox(
+                      width: double.infinity,
+                      height: 48,
+                      child: ElevatedButton(
+                        onPressed: _refresh,
+                        child: const Icon(Icons.refresh),
+                      ),
+                    ),
+                  ),
                 ],
               ),
 
@@ -433,16 +472,16 @@ class _MainPageState extends State<MainPage> {
           unselectedItemColor: Theme.of(context).colorScheme.onSurfaceVariant,
           onTap: (index) => setState(() => _currentIndex = index),
           items: [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home_outlined),
-              activeIcon: Icon(Icons.home),
-              label: context.l10n.homeTitle,
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.qr_code_scanner_outlined),
-              activeIcon: Icon(Icons.qr_code_scanner),
-              label: context.l10n.scannerTitle,
-            ),
+            //BottomNavigationBarItem(
+            //  icon: Icon(Icons.home_outlined),
+            //  activeIcon: Icon(Icons.home),
+            //  label: context.l10n.homeTitle,
+            //),
+            //BottomNavigationBarItem(
+            //  icon: Icon(Icons.qr_code_scanner_outlined),
+            //  activeIcon: Icon(Icons.qr_code_scanner),
+            //  label: context.l10n.scannerTitle,
+            //),
             BottomNavigationBarItem(
               icon: Icon(Icons.card_giftcard),
               activeIcon: Icon(Icons.card_giftcard),
@@ -459,6 +498,7 @@ class _MainPageState extends State<MainPage> {
                 activeIcon: Icon(Icons.business),
                 label: context.l10n.companyTitle,
               ),
+            const BottomNavigationBarItem(icon: SizedBox.shrink(), label: ''),
           ],
         ),
       ),

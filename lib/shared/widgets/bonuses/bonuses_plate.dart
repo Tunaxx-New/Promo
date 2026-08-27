@@ -47,7 +47,7 @@ class BonusesPlate extends StatelessWidget {
                       child: Row(
                         children: [
                           Text(
-                            bonusSum.toString(),
+                            bonusSum.toStringAsFixed(2).replaceFirst(RegExp(r'\.?0+$'), ''),
                             style: TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,

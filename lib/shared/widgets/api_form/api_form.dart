@@ -5,6 +5,7 @@ import 'package:promo/shared/formatters/kazakhstsan_phone_formatter.dart';
 import 'package:promo/shared/formatters/max_line_formatter.dart';
 import 'package:promo/shared/theme/build_prefix_icon.dart';
 import 'package:promo/shared/widgets/api_form/api_client.dart';
+import 'package:promo/shared/widgets/api_form/api_exception.dart';
 import 'package:promo/shared/widgets/api_form/api_field.dart';
 import 'package:promo/shared/widgets/api_form/api_field_type.dart';
 import 'package:promo/shared/widgets/api_form/http_method.dart';
@@ -26,7 +27,8 @@ class ApiForm extends StatefulWidget {
   final Widget? footer;
 
   final ValueChanged<Map<String, dynamic>>? onSuccess;
-  final ValueChanged<Object>? onError;
+  final void Function(dynamic e, Map<String, dynamic> data)? onError;
+  final Map<int, Color> errorColors;
 
   final ApiClient apiClient;
 
@@ -43,6 +45,7 @@ class ApiForm extends StatefulWidget {
     this.footer,
     this.onSuccess,
     this.onError,
+    this.errorColors = const {},
     required this.apiClient,
   });
 
@@ -79,9 +82,8 @@ class _ApiFormState extends State<ApiForm> {
   Future<void> _submit() async {
     setState(() => _loading = true);
 
+    final body = <String, dynamic>{};
     try {
-      final body = <String, dynamic>{};
-
       for (final field in widget.fields) {
         var value = _controllers[field.key]!.text;
 
@@ -110,7 +112,7 @@ class _ApiFormState extends State<ApiForm> {
             break;
         }
       }
-      
+
       final json = await widget.apiClient.request(
         route: widget.route,
         method: widget.method,
@@ -119,8 +121,11 @@ class _ApiFormState extends State<ApiForm> {
 
       widget.onSuccess?.call(json);
     } catch (e) {
-      ErrorHandler.show(context, e);
-      widget.onError?.call(e);
+      final statusCode = e is ApiException ? e.statusCode : null;
+      final color = statusCode != null ? widget.errorColors[statusCode] : null;
+      ErrorHandler.show(context, e, color: color);
+
+      widget.onError?.call(e, body);
     } finally {
       if (mounted) {
         setState(() => _loading = false);
