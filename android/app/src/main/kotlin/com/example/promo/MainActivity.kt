@@ -1,4 +1,4 @@
-package com.example.promo
+package kz.nikita.lider
 
 import io.flutter.embedding.android.FlutterActivity
 

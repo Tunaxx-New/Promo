@@ -1,6 +1,6 @@
 {
-    "name": "promo",
-    "short_name": "promo",
+    "name": "Лидер Автомойка",
+    "short_name": "Лидер",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
