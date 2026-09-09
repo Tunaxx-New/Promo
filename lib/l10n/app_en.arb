@@ -46,6 +46,9 @@
   "userUpdateTitle": "Update profile",
   "username": "Full name",
 
+  "userDeleteTitle": "Delete profile",
+  "userDeleteDescription": "Are you sure you want to delete your account?",
+
   "companyUpdateTitle": "Company update profile",
   "companyName": "Company name",
 

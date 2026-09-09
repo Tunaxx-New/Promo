@@ -6,6 +6,7 @@ import 'package:promo/app/app.dart';
 import 'package:promo/app/routes.dart';
 import 'package:promo/core/api/api.dart';
 import 'package:promo/core/api/minio.dart';
+import 'package:promo/features/authorization/widgets/delete_user_profile.dart';
 import 'package:promo/features/authorization/widgets/update_user_profile.dart';
 import 'package:promo/features/cards/cards_page.dart';
 
@@ -369,6 +370,21 @@ class _MainPageState extends State<MainPage> {
                       ),
                     );
                     break;
+                  case 'delete_user_profile':
+                    await Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (_) => DeleteUserProfileWidget(
+                          user: {},
+                          onDeleted: () {
+                            Navigator.of(context).pushNamedAndRemoveUntil(
+                              AppRoutes.splash,
+                              (route) => false,
+                            );
+                          },
+                        ),
+                      ),
+                    );
+                    break;
                 }
               },
               itemBuilder: (context) => [
@@ -389,6 +405,16 @@ class _MainPageState extends State<MainPage> {
                       Icon(Icons.person_2_rounded),
                       SizedBox(width: 12),
                       Text(context.l10n.userUpdateTitle),
+                    ],
+                  ),
+                ),
+                PopupMenuItem(
+                  value: 'delete_user_profile',
+                  child: Row(
+                    children: [
+                      Icon(Icons.person_2_rounded),
+                      SizedBox(width: 12),
+                      Text(context.l10n.userDeleteTitle),
                     ],
                   ),
                 ),

@@ -103,6 +103,12 @@ class AppLocalizationsKk extends AppLocalizations {
   String get username => 'Толық аты-жөні';
 
   @override
+  String get userDeleteTitle => 'Профильді жою';
+
+  @override
+  String get userDeleteDescription => 'Тіркелгіңізді жойғыңыз келетініне сенімдісіз бе?';
+
+  @override
   String get companyUpdateTitle => 'Компания профилін жаңарту';
 
   @override

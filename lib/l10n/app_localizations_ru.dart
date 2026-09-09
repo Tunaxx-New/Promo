@@ -103,6 +103,12 @@ class AppLocalizationsRu extends AppLocalizations {
   String get username => 'ФИО';
 
   @override
+  String get userDeleteTitle => 'Удалить профиль';
+
+  @override
+  String get userDeleteDescription => 'Вы уверены, что хотите удалить свой аккаунт?';
+
+  @override
   String get companyUpdateTitle => 'Обновление профиля компании';
 
   @override

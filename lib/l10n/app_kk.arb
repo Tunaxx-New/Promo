@@ -46,6 +46,9 @@
   "userUpdateTitle": "Пайдаланушы профилін жаңарту",
   "username": "Толық аты-жөні",
 
+  "userDeleteTitle": "Профильді жою",
+  "userDeleteDescription": "Тіркелгіңізді жойғыңыз келетініне сенімдісіз бе?",
+
   "companyUpdateTitle": "Компания профилін жаңарту",
   "companyName": "Компания атауы",
 

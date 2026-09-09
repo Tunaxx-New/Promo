@@ -277,6 +277,18 @@ abstract class AppLocalizations {
   /// **'Full name'**
   String get username;
 
+  /// No description provided for @userDeleteTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete profile'**
+  String get userDeleteTitle;
+
+  /// No description provided for @userDeleteDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to delete your account?'**
+  String get userDeleteDescription;
+
   /// No description provided for @companyUpdateTitle.
   ///
   /// In en, this message translates to:

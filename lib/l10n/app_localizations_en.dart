@@ -103,6 +103,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get username => 'Full name';
 
   @override
+  String get userDeleteTitle => 'Delete profile';
+
+  @override
+  String get userDeleteDescription => 'Are you sure you want to delete your account?';
+
+  @override
   String get companyUpdateTitle => 'Company update profile';
 
   @override
