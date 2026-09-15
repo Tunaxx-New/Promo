@@ -325,4 +325,100 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get get_code_from_cassier => 'Получить код с кассы';
+
+  @override
+  String get slogan => 'Чистый автомобиль - всегда в плюсе!';
+
+  @override
+  String get hello => 'Привет';
+
+  @override
+  String get your_bonuses => 'Ваши бонусы';
+
+  @override
+  String get your_bonusov => 'Ваши бонусов';
+
+  @override
+  String get until_next_level => 'До следующего уровня';
+
+  @override
+  String get washing => 'Мойка';
+
+  @override
+  String get promotions => 'Акции';
+
+  @override
+  String get promotion => 'Акция';
+
+  @override
+  String get partners => 'Партнеры';
+
+  @override
+  String get partner => 'Партнер';
+
+  @override
+  String get useful => 'Полезное';
+
+  @override
+  String get read_more => 'Подробнее';
+
+  @override
+  String get ads => 'Реклама';
+
+  @override
+  String get weather => 'Погода';
+
+  @override
+  String get news => 'Новости';
+
+  @override
+  String get main => 'Главная';
+
+  @override
+  String get history => 'История';
+
+  @override
+  String get map => 'Карта';
+
+  @override
+  String get profile => 'Профиль';
+
+  @override
+  String get spend_bonuses => 'Потратить бонусы';
+
+  @override
+  String get your_level => 'Ваш уровень';
+
+  @override
+  String get how_to_pile_up => 'Как накопить';
+
+  @override
+  String get my_bonuses => 'Мои бонусы';
+
+  @override
+  String get my_cars => 'Мои автомобили';
+
+  @override
+  String get notifications => 'Уведомления';
+
+  @override
+  String get settings => 'Настройки';
+
+  @override
+  String get about_app => 'О приложении';
+
+  @override
+  String get bronze => 'Бронза';
+
+  @override
+  String get silver => 'Серебро';
+
+  @override
+  String get gold => 'Золото';
+
+  @override
+  String get diamon => 'Бриллиант';
+
+  @override
+  String get guest => 'Гость';
 }

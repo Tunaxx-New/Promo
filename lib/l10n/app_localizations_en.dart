@@ -325,4 +325,100 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get get_code_from_cassier => 'Get code from cassier';
+
+  @override
+  String get slogan => 'A clean car - always a win!';
+
+  @override
+  String get hello => 'Hello';
+
+  @override
+  String get your_bonuses => 'Your bonuses';
+
+  @override
+  String get your_bonusov => 'Your bonuses';
+
+  @override
+  String get until_next_level => 'Until next level';
+
+  @override
+  String get washing => 'Washing';
+
+  @override
+  String get promotions => 'Promotions';
+
+  @override
+  String get promotion => 'Promotion';
+
+  @override
+  String get partners => 'Partners';
+
+  @override
+  String get partner => 'Partner';
+
+  @override
+  String get useful => 'Useful';
+
+  @override
+  String get read_more => 'Read more';
+
+  @override
+  String get ads => 'Ads';
+
+  @override
+  String get weather => 'Weather';
+
+  @override
+  String get news => 'News';
+
+  @override
+  String get main => 'Main';
+
+  @override
+  String get history => 'History';
+
+  @override
+  String get map => 'Map';
+
+  @override
+  String get profile => 'Profile';
+
+  @override
+  String get spend_bonuses => 'Spend bonuses';
+
+  @override
+  String get your_level => 'Your level';
+
+  @override
+  String get how_to_pile_up => 'How to pile up';
+
+  @override
+  String get my_bonuses => 'My bonuses';
+
+  @override
+  String get my_cars => 'My cars';
+
+  @override
+  String get notifications => 'Notifications';
+
+  @override
+  String get settings => 'Settings';
+
+  @override
+  String get about_app => 'About app';
+
+  @override
+  String get bronze => 'Bronze';
+
+  @override
+  String get silver => 'Silver';
+
+  @override
+  String get gold => 'Gold';
+
+  @override
+  String get diamon => 'Diamond';
+
+  @override
+  String get guest => 'Guest';
 }

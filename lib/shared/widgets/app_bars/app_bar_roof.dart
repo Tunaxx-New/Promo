@@ -17,13 +17,13 @@ class AppBarRoof extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    final primary = Theme.of(context).colorScheme.primary;
+    final colorScheme = Theme.of(context).colorScheme;
 
     return Scaffold(
-      backgroundColor: primary,
+      backgroundColor: colorScheme.primary,
       appBar: AppBar(
-        backgroundColor: primary,
-        foregroundColor: Colors.white,
+        backgroundColor: colorScheme.primary,
+        foregroundColor: colorScheme.onPrimary,
         elevation: 0,
         toolbarHeight: 56,
         automaticallyImplyLeading: false,
@@ -34,17 +34,17 @@ class AppBarRoof extends StatelessWidget implements PreferredSizeWidget {
                 child: Align(
                   alignment: Alignment.topLeft,
                   child: Material(
-                    color: Colors.white.withOpacity(1.0),
+                    color: Theme.of(context).colorScheme.surface,
                     borderRadius: BorderRadius.circular(12),
                     child: InkWell(
                       borderRadius: BorderRadius.circular(12),
                       onTap: () => Navigator.of(context).pop(),
-                      child: const SizedBox(
+                      child: SizedBox(
                         width: 40,
                         height: 40,
                         child: Icon(
                           Icons.arrow_back_rounded,
-                          color: Colors.black,
+                          color: colorScheme.onSurface,
                           size: 20,
                         ),
                       ),
@@ -87,8 +87,8 @@ class AppBarRoof extends StatelessWidget implements PreferredSizeWidget {
       ),
       body: Container(
         width: double.infinity,
-        decoration: const BoxDecoration(
-          color: Colors.white,
+        decoration: BoxDecoration(
+          color: colorScheme.surface,
           borderRadius: BorderRadius.vertical(top: Radius.circular(14)),
         ),
         child: SafeArea(top: false, child: child),

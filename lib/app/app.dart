@@ -31,6 +31,8 @@ class _AppState extends State<App> {
       initialRoute: AppRoutes.splash,
       routes: AppRoutes.routes,
       theme: AppTheme.light(),
+      darkTheme: AppTheme.dark(),
+      themeMode: ThemeMode.dark,
     );
   }
 }

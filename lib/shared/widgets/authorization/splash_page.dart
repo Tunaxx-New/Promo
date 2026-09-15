@@ -47,7 +47,7 @@ class _SplashPageState extends State<SplashPage> {
     } on ClientException catch (e) {
       ErrorHandler.show(context, e);
       if (!mounted) return;
-      Navigator.pushReplacementNamed(context, AppRoutes.splash);
+      Navigator.pushNamed(context, AppRoutes.splash);
     } catch (e) {
       ErrorHandler.show(context, e);
       _goToAuthorization();
@@ -55,11 +55,11 @@ class _SplashPageState extends State<SplashPage> {
   }
 
   void _goToMain() {
-    Navigator.pushReplacementNamed(context, AppRoutes.home);
+    Navigator.pushNamed(context, AppRoutes.home);
   }
 
   void _goToAuthorization() {
-    Navigator.pushReplacementNamed(context, AppRoutes.authorization);
+    Navigator.pushNamed(context, AppRoutes.unauthorized);
   }
 
   @override

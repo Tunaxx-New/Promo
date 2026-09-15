@@ -143,5 +143,41 @@
   "code_active_for": "The code is active for",
   "code_has_expired": "The code has expired",
   "refresh_in": "Refresh in",
-  "get_code_from_cassier": "Get code from cassier"
+  "get_code_from_cassier": "Get code from cassier",
+
+  
+  "slogan": "A clean car - always a win!",
+  "hello": "Hello",
+  "your_bonuses": "Your bonuses",
+  "your_bonusov": "Your bonuses",
+  "until_next_level": "Until next level",
+  "washing": "Washing",
+  "promotions": "Promotions",
+  "promotion": "Promotion",
+  "partners": "Partners",
+  "partner": "Partner",
+  "useful": "Useful",
+  "read_more": "Read more",
+  "ads": "Ads",
+  "weather": "Weather",
+  "news": "News",
+  "main": "Main",
+  "history": "History",
+  "map": "Map",
+  "profile": "Profile",
+  "spend_bonuses": "Spend bonuses",
+  "your_level": "Your level",
+  "how_to_pile_up": "How to pile up",
+
+  "my_bonuses": "My bonuses",
+  "my_cars": "My cars",
+  "notifications": "Notifications",
+  "settings": "Settings",
+  "about_app": "About app",
+
+  "bronze": "Bronze",
+  "silver": "Silver",
+  "gold": "Gold",
+  "diamon": "Diamond",
+  "guest": "Guest"
 }

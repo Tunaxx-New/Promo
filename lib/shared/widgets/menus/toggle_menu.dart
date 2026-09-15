@@ -24,6 +24,7 @@ class ToggleMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final radius = borderRadius ?? BorderRadius.circular(8);
+    final colorScheme = Theme.of(context).colorScheme;
 
     return LayoutBuilder(
       builder: (context, constraints) {
@@ -34,7 +35,7 @@ class ToggleMenu extends StatelessWidget {
           height: height,
           padding: EdgeInsets.all(padding),
           decoration: BoxDecoration(
-            color: Theme.of(context).colorScheme.surfaceContainerHighest,
+            color: colorScheme.surfaceContainerHighest,
             borderRadius: radius,
           ),
           child: Stack(
@@ -47,7 +48,7 @@ class ToggleMenu extends StatelessWidget {
                   width: indicatorWidth,
                   height: height - padding * 2,
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: colorScheme.surface,
                     borderRadius: radius,
                   ),
                 ),
@@ -64,7 +65,7 @@ class ToggleMenu extends StatelessWidget {
                           style: TextStyle(
                             fontSize: 12,
                             fontWeight: FontWeight.w600,
-                            color: Theme.of(context).colorScheme.onSurface,
+                            color: colorScheme.onSurface,
                           ),
                           child: Text(options[index]),
                         ),

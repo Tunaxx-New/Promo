@@ -41,11 +41,13 @@ class _LoadingCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+
     return Container(
       width: 130,
       padding: const EdgeInsets.all(24),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: colorScheme.surface,
         borderRadius: BorderRadius.circular(20),
       ),
       child: Column(
@@ -60,7 +62,7 @@ class _LoadingCard extends StatelessWidget {
           ),
           const SizedBox(height: 16),
           Text(
-            "Loading...",
+            "...",
             style: Theme.of(context).textTheme.bodyMedium,
           ),
         ],

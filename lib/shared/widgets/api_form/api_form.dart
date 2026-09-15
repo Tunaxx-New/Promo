@@ -305,8 +305,8 @@ class _ApiFormState extends State<ApiForm> {
                   child: FilledButton(
                     onPressed: _submit,
                     style: FilledButton.styleFrom(
-                      backgroundColor: Colors.black,
-                      foregroundColor: Colors.white,
+                      backgroundColor: Theme.of(context).colorScheme.primary,
+                      foregroundColor: Theme.of(context).colorScheme.onPrimary,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12),
                       ),

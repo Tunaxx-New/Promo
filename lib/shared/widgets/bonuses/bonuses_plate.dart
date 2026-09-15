@@ -41,7 +41,7 @@ class BonusesPlate extends StatelessWidget {
                         vertical: 3,
                       ),
                       decoration: BoxDecoration(
-                        color: colorScheme.surfaceBright,
+                        color: colorScheme.onPrimary,
                         borderRadius: BorderRadius.circular(5),
                       ),
                       child: Row(
@@ -49,6 +49,7 @@ class BonusesPlate extends StatelessWidget {
                           Text(
                             bonusSum.toStringAsFixed(2).replaceFirst(RegExp(r'\.?0+$'), ''),
                             style: TextStyle(
+                              color: colorScheme.surface,
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
                             ),

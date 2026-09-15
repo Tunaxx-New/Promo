@@ -412,7 +412,7 @@ class _MainPageState extends State<MainPage> {
                   value: 'delete_user_profile',
                   child: Row(
                     children: [
-                      Icon(Icons.person_2_rounded),
+                      Icon(Icons.delete_forever),
                       SizedBox(width: 12),
                       Text(context.l10n.userDeleteTitle),
                     ],
@@ -494,7 +494,7 @@ class _MainPageState extends State<MainPage> {
           key: ValueKey(_isCompany),
           type: BottomNavigationBarType.fixed,
           currentIndex: _currentIndex,
-          selectedItemColor: Theme.of(context).colorScheme.primary,
+          selectedItemColor: Theme.of(context).colorScheme.secondary,
           unselectedItemColor: Theme.of(context).colorScheme.onSurfaceVariant,
           onTap: (index) => setState(() => _currentIndex = index),
           items: [

@@ -325,4 +325,100 @@ class AppLocalizationsKk extends AppLocalizations {
 
   @override
   String get get_code_from_cassier => 'Кассадан кодты алыңыз';
+
+  @override
+  String get slogan => 'Таза көлік - әрқашан ұтыста!';
+
+  @override
+  String get hello => 'Сәлем';
+
+  @override
+  String get your_bonuses => 'Сіздің бонустарыңыз';
+
+  @override
+  String get your_bonusov => 'Сіздің бонустарыңыз';
+
+  @override
+  String get until_next_level => 'Келесі деңгейге дейін';
+
+  @override
+  String get washing => 'Жуу';
+
+  @override
+  String get promotions => 'Жарнамалар';
+
+  @override
+  String get promotion => 'Жарнама';
+
+  @override
+  String get partners => 'Серіктестер';
+
+  @override
+  String get partner => 'Серіктестер';
+
+  @override
+  String get useful => 'Пайдалы';
+
+  @override
+  String get read_more => 'Қосымша мәліметтер';
+
+  @override
+  String get ads => 'Жарнама';
+
+  @override
+  String get weather => 'Ауа райы';
+
+  @override
+  String get news => 'Жаңалықтар';
+
+  @override
+  String get main => 'Басты бет';
+
+  @override
+  String get history => 'Тарих';
+
+  @override
+  String get map => 'Карта';
+
+  @override
+  String get profile => 'Профиль';
+
+  @override
+  String get spend_bonuses => 'Бонустарды жұмсау';
+
+  @override
+  String get your_level => 'Сіздің деңгейіңіз';
+
+  @override
+  String get how_to_pile_up => 'Қалай жинақтау';
+
+  @override
+  String get my_bonuses => 'Менің бонустарым';
+
+  @override
+  String get my_cars => 'Менің көліктерім';
+
+  @override
+  String get notifications => 'Хабарландырулар';
+
+  @override
+  String get settings => 'Параметрлер';
+
+  @override
+  String get about_app => 'Қолданба туралы';
+
+  @override
+  String get bronze => 'Қола';
+
+  @override
+  String get silver => 'Күміс';
+
+  @override
+  String get gold => 'Алтын';
+
+  @override
+  String get diamon => 'Diamond';
+
+  @override
+  String get guest => 'Қонақ';
 }

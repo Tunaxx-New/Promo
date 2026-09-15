@@ -143,5 +143,41 @@
   "code_active_for": "Код белсенді",
   "code_has_expired": "Кодтың мерзімі бітті",
   "refresh_in": "Жаңарту арқылы",
-  "get_code_from_cassier": "Кассадан кодты алыңыз"
+  "get_code_from_cassier": "Кассадан кодты алыңыз",
+
+
+  "slogan": "Таза көлік - әрқашан ұтыста!",
+  "hello": "Сәлем",
+  "your_bonuses": "Сіздің бонустарыңыз",
+  "your_bonusov": "Сіздің бонустарыңыз",
+  "until_next_level": "Келесі деңгейге дейін",
+  "washing": "Жуу",
+  "promotions": "Жарнамалар",
+  "promotion": "Жарнама",
+  "partners": "Серіктестер",
+  "partner": "Серіктестер",
+  "useful": "Пайдалы",
+  "read_more": "Қосымша мәліметтер",
+  "ads": "Жарнама",
+  "weather": "Ауа райы",
+  "news": "Жаңалықтар",
+  "main": "Басты бет",
+  "history": "Тарих",
+  "map": "Карта",
+  "profile": "Профиль",
+  "spend_bonuses": "Бонустарды жұмсау",
+  "your_level": "Сіздің деңгейіңіз",
+  "how_to_pile_up": "Қалай жинақтау",
+
+  "my_bonuses": "Менің бонустарым",
+  "my_cars": "Менің көліктерім",
+  "notifications": "Хабарландырулар",
+  "settings": "Параметрлер",
+  "about_app": "Қолданба туралы",
+
+  "bronze": "Қола",
+  "silver": "Күміс",
+  "gold": "Алтын",
+  "diamond": "Гауһар",
+  "guest": "Қонақ"
 }

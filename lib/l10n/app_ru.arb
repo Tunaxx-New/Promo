@@ -143,5 +143,41 @@
   "code_active_for": "Код активен ещё",
   "code_has_expired": "Срок действия кода истёк",
   "refresh_in": "Обновить через",
-  "get_code_from_cassier": "Получить код с кассы"
+  "get_code_from_cassier": "Получить код с кассы",
+
+  
+  "slogan": "Чистый автомобиль - всегда в плюсе!",
+  "hello": "Привет",
+  "your_bonuses": "Ваши бонусы",
+  "your_bonusov": "Ваши бонусов",
+  "until_next_level": "До следующего уровня",
+  "washing": "Мойка",
+  "promotions": "Акции",
+  "promotion": "Акция",
+  "partners": "Партнеры",
+  "partner": "Партнер",
+  "useful": "Полезное",
+  "read_more": "Подробнее",
+  "ads": "Реклама",
+  "weather": "Погода",
+  "news": "Новости",
+  "main": "Главная",
+  "history": "История",
+  "map": "Карта",
+  "profile": "Профиль",
+  "spend_bonuses": "Потратить бонусы",
+  "your_level": "Ваш уровень",
+  "how_to_pile_up": "Как накопить",
+
+  "my_bonuses": "Мои бонусы",
+  "my_cars": "Мои автомобили",
+  "notifications": "Уведомления",
+  "settings": "Настройки",
+  "about_app": "О приложении",
+
+  "bronze": "Бронза",
+  "silver": "Серебро",
+  "gold": "Золото",
+  "diamon": "Бриллиант",
+  "guest": "Гость"
 }

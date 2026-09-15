@@ -720,6 +720,198 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Get code from cassier'**
   String get get_code_from_cassier;
+
+  /// No description provided for @slogan.
+  ///
+  /// In en, this message translates to:
+  /// **'A clean car - always a win!'**
+  String get slogan;
+
+  /// No description provided for @hello.
+  ///
+  /// In en, this message translates to:
+  /// **'Hello'**
+  String get hello;
+
+  /// No description provided for @your_bonuses.
+  ///
+  /// In en, this message translates to:
+  /// **'Your bonuses'**
+  String get your_bonuses;
+
+  /// No description provided for @your_bonusov.
+  ///
+  /// In en, this message translates to:
+  /// **'Your bonuses'**
+  String get your_bonusov;
+
+  /// No description provided for @until_next_level.
+  ///
+  /// In en, this message translates to:
+  /// **'Until next level'**
+  String get until_next_level;
+
+  /// No description provided for @washing.
+  ///
+  /// In en, this message translates to:
+  /// **'Washing'**
+  String get washing;
+
+  /// No description provided for @promotions.
+  ///
+  /// In en, this message translates to:
+  /// **'Promotions'**
+  String get promotions;
+
+  /// No description provided for @promotion.
+  ///
+  /// In en, this message translates to:
+  /// **'Promotion'**
+  String get promotion;
+
+  /// No description provided for @partners.
+  ///
+  /// In en, this message translates to:
+  /// **'Partners'**
+  String get partners;
+
+  /// No description provided for @partner.
+  ///
+  /// In en, this message translates to:
+  /// **'Partner'**
+  String get partner;
+
+  /// No description provided for @useful.
+  ///
+  /// In en, this message translates to:
+  /// **'Useful'**
+  String get useful;
+
+  /// No description provided for @read_more.
+  ///
+  /// In en, this message translates to:
+  /// **'Read more'**
+  String get read_more;
+
+  /// No description provided for @ads.
+  ///
+  /// In en, this message translates to:
+  /// **'Ads'**
+  String get ads;
+
+  /// No description provided for @weather.
+  ///
+  /// In en, this message translates to:
+  /// **'Weather'**
+  String get weather;
+
+  /// No description provided for @news.
+  ///
+  /// In en, this message translates to:
+  /// **'News'**
+  String get news;
+
+  /// No description provided for @main.
+  ///
+  /// In en, this message translates to:
+  /// **'Main'**
+  String get main;
+
+  /// No description provided for @history.
+  ///
+  /// In en, this message translates to:
+  /// **'History'**
+  String get history;
+
+  /// No description provided for @map.
+  ///
+  /// In en, this message translates to:
+  /// **'Map'**
+  String get map;
+
+  /// No description provided for @profile.
+  ///
+  /// In en, this message translates to:
+  /// **'Profile'**
+  String get profile;
+
+  /// No description provided for @spend_bonuses.
+  ///
+  /// In en, this message translates to:
+  /// **'Spend bonuses'**
+  String get spend_bonuses;
+
+  /// No description provided for @your_level.
+  ///
+  /// In en, this message translates to:
+  /// **'Your level'**
+  String get your_level;
+
+  /// No description provided for @how_to_pile_up.
+  ///
+  /// In en, this message translates to:
+  /// **'How to pile up'**
+  String get how_to_pile_up;
+
+  /// No description provided for @my_bonuses.
+  ///
+  /// In en, this message translates to:
+  /// **'My bonuses'**
+  String get my_bonuses;
+
+  /// No description provided for @my_cars.
+  ///
+  /// In en, this message translates to:
+  /// **'My cars'**
+  String get my_cars;
+
+  /// No description provided for @notifications.
+  ///
+  /// In en, this message translates to:
+  /// **'Notifications'**
+  String get notifications;
+
+  /// No description provided for @settings.
+  ///
+  /// In en, this message translates to:
+  /// **'Settings'**
+  String get settings;
+
+  /// No description provided for @about_app.
+  ///
+  /// In en, this message translates to:
+  /// **'About app'**
+  String get about_app;
+
+  /// No description provided for @bronze.
+  ///
+  /// In en, this message translates to:
+  /// **'Bronze'**
+  String get bronze;
+
+  /// No description provided for @silver.
+  ///
+  /// In en, this message translates to:
+  /// **'Silver'**
+  String get silver;
+
+  /// No description provided for @gold.
+  ///
+  /// In en, this message translates to:
+  /// **'Gold'**
+  String get gold;
+
+  /// No description provided for @diamon.
+  ///
+  /// In en, this message translates to:
+  /// **'Diamond'**
+  String get diamon;
+
+  /// No description provided for @guest.
+  ///
+  /// In en, this message translates to:
+  /// **'Guest'**
+  String get guest;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

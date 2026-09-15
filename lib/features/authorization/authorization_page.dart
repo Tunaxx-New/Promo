@@ -8,21 +8,29 @@ import 'package:promo/shared/widgets/app_version_text.dart';
 import 'package:promo/shared/widgets/menus/toggle_menu.dart';
 
 class AuthorizationPage extends StatefulWidget {
-  const AuthorizationPage({super.key});
+  final int selected;
+
+  const AuthorizationPage({super.key, this.selected = 0});
 
   @override
   State<AuthorizationPage> createState() => _AuthorizationPageState();
 }
 
 class _AuthorizationPageState extends State<AuthorizationPage> {
-  int _selected = 0;
+  late int _selected;
+
+  @override
+  void initState() {
+    super.initState();
+    _selected = widget.selected;
+  }
 
   @override
   Widget build(BuildContext context) {
     return AppBarRoof(
       title: context.l10n.authorizationTitle,
       description: context.l10n.authorizationDescription,
-      showBackButton: false,
+      showBackButton: true,
       child: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
