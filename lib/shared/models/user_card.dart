@@ -15,7 +15,11 @@ class UserCard {
     required this.bonusesSum,
   });
 
-  factory UserCard.fromJson(Map<String, dynamic> json, Company? company, double bonusesSum) {
+  factory UserCard.fromJson(
+    Map<String, dynamic> json,
+    Company? company,
+    double bonusesSum,
+  ) {
     return UserCard(
       cardId: json['card_id'],
       company: company,
@@ -23,5 +27,13 @@ class UserCard {
       discountPercent: (json['discount_percent'] as num?)?.toDouble() ?? 0.0,
       bonusesSum: bonusesSum,
     );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'card_id': cardId,
+      'company_bin': companyBin,
+      'discount_percent': discountPercent,
+    };
   }
 }

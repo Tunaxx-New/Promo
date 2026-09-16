@@ -6,10 +6,10 @@ import 'package:promo/shared/widgets/api_form/http_method.dart';
 import 'package:promo/shared/widgets/authorization/authorization_service.dart';
 
 class ApiClient {
-  final String baseUrl;
+  static const String baseUrl = String.fromEnvironment('API_BASE_URL', defaultValue: 'http://localhost:8000');
   String Function()? languageProvider;
 
-  ApiClient({required this.baseUrl, this.languageProvider});
+  ApiClient({this.languageProvider});
 
   Future<Map<String, dynamic>> request({
     required String route,

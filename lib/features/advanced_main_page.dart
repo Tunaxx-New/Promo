@@ -38,6 +38,12 @@ class _AdvancedMainPageState extends State<AdvancedMainPage> {
   int _cardCodeVersion = 0;
   Timer? _cardCodeTimer;
 
+  // Async loading statuses
+  bool _isRefreshing = false;
+  bool _checksLoading = false;
+  bool _userLoading = false;
+  bool _cardCodeLoading = false;
+
   @override
   void initState() {
     super.initState();
@@ -67,21 +73,34 @@ class _AdvancedMainPageState extends State<AdvancedMainPage> {
   }
 
   Future<void> _refresh() async {
-    _isCompany = null;
-    final total = Stopwatch()..start();
+    if (_isRefreshing) {
+      debugPrint('⚠️ refresh already running');
+      return;
+    }
 
-    await Future.wait([
-      _measure('loadCompanies', _loadCompanies),
-      _measure('loadComposePromocodes', _loadComposePromocodes),
-      _measure('loadChecks', _loadChecks),
-    ]);
+    _isRefreshing = true;
 
-    await _measure('loadUser', _loadUser);
-    await _measure('loadCardCode', () => _loadCardCode(isShowError: false));
+    try {
+      _isCompany = null;
+      final total = Stopwatch()..start();
 
-    total.stop();
+      await Future.wait([
+        _measure('loadCompanies', _loadCompanies),
+        _measure('loadComposePromocodes', _loadComposePromocodes),
+      ]);
 
-    debugPrint('⏱ TOTAL refresh: ${total.elapsedMilliseconds} ms');
+      unawaited(_measure('loadUser', _loadUser));
+      unawaited(_measure('loadChecks', _loadChecks));
+      unawaited(
+        _measure('loadCardCode', () => _loadCardCode(isShowError: false)),
+      );
+
+      total.stop();
+
+      debugPrint('⏱ TOTAL refresh: ${total.elapsedMilliseconds} ms');
+    } finally {
+      _isRefreshing = false;
+    }
   }
 
   Future<void> _loadComposePromocodes() async {
@@ -129,6 +148,13 @@ class _AdvancedMainPageState extends State<AdvancedMainPage> {
   }
 
   Future<void> _loadUser() async {
+    if (_userLoading) {
+      debugPrint('⚠️ loadUser already running');
+      return;
+    }
+
+    _userLoading = true;
+
     try {
       final response = await api.request(
         route: '/auth/profile',
@@ -153,18 +179,11 @@ class _AdvancedMainPageState extends State<AdvancedMainPage> {
                 }
               }
 
-              double bonusesSum = 0.0;
-              _bonuses = 0.0;
-
-              for (final check in _checks) {
-                _bonuses += check.bonusSum;
-
-                if (item['card_id'] == check.cardId) {
-                  bonusesSum += check.bonusSum;
-                }
-              }
-
-              return UserCard.fromJson(item, company, bonusesSum);
+              return UserCard.fromJson(
+                item,
+                company,
+                _bonuses,
+              );
             }).toList(),
           );
       });
@@ -176,10 +195,19 @@ class _AdvancedMainPageState extends State<AdvancedMainPage> {
         _bonuses = 0;
         _cards.clear();
       });
+    } finally {
+      _userLoading = false;
     }
   }
 
   Future<void> _loadChecks() async {
+    if (_checksLoading) {
+      debugPrint('⚠️ loadChecks already running');
+      return;
+    }
+
+    _checksLoading = true;
+
     try {
       final response = await api.request(
         route: '/bonuses/checks',
@@ -203,6 +231,31 @@ class _AdvancedMainPageState extends State<AdvancedMainPage> {
               return PaymentCheck.fromJson(item);
             }).toList(),
           );
+
+        // Update bonuses global
+        _bonuses = 0.0;
+        for (final check in _checks) {
+          _bonuses += check.bonusSum;
+        }
+
+        // Update card based
+        for (var i = 0; i < _cards.length; i++) {
+          final card = _cards[i];
+
+          var bonusesSum = 0.0;
+
+          for (final check in _checks) {
+            if (check.cardId == card.cardId) {
+              bonusesSum += check.bonusSum;
+            }
+          }
+
+          _cards[i] = UserCard.fromJson(
+            card.toJson(),
+            card.company,
+            bonusesSum,
+          );
+        }
       });
     } catch (e) {
       if (!mounted) return;
@@ -212,10 +265,19 @@ class _AdvancedMainPageState extends State<AdvancedMainPage> {
       setState(() {
         _checks.clear();
       });
+    } finally {
+      _checksLoading = false;
     }
   }
 
   Future<void> _loadCardCode({bool isShowError = true}) async {
+    if (_cardCodeLoading) {
+      debugPrint('⚠️ cardCodeLoading already running');
+      return;
+    }
+
+    _cardCodeLoading = true;
+
     try {
       final response = await api.request(
         route: '/auth/card_code/get',
@@ -239,6 +301,8 @@ class _AdvancedMainPageState extends State<AdvancedMainPage> {
       setState(() {
         _cardCode = null;
       });
+    } finally {
+      _cardCodeLoading = false;
     }
   }
 
