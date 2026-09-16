@@ -71,7 +71,10 @@ class CardCard extends StatelessWidget {
               const Divider(),
               const SizedBox(height: 14),
 
-              Text(context.l10n.companyTitle, style: Theme.of(context).textTheme.labelMedium),
+              Text(
+                context.l10n.companyTitle,
+                style: Theme.of(context).textTheme.labelMedium,
+              ),
               const SizedBox(height: 5),
               Text(
                 card.company!.name,
@@ -93,15 +96,16 @@ class CardCard extends StatelessWidget {
 
             const SizedBox(height: 20),
             const Divider(),
-            const SizedBox(height: 16),
 
             Center(
               child: BarcodeWidget(
                 barcode: Barcode.code128(),
+                padding: const EdgeInsets.all(16),
                 data: card.cardId,
-                width: 280,
-                height: 80,
+                width: double.infinity,
+                height: 120,
                 drawText: true,
+                backgroundColor: Colors.white,
               ),
             ),
           ],

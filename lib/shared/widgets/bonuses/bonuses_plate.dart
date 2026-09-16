@@ -3,6 +3,7 @@ import 'package:promo/shared/extensions/localization_extension.dart';
 
 class BonusesPlate extends StatelessWidget {
   final double bonusSum;
+  final bool isLoading;
   final String? imageUrl;
   final VoidCallback? onTap;
   final VoidCallback? onUpdate;
@@ -10,6 +11,7 @@ class BonusesPlate extends StatelessWidget {
   const BonusesPlate({
     super.key,
     required this.bonusSum,
+    required this.isLoading,
     this.imageUrl,
     this.onTap,
     this.onUpdate,
@@ -27,9 +29,7 @@ class BonusesPlate extends StatelessWidget {
           width: double.infinity,
           height: 52,
           padding: const EdgeInsets.symmetric(horizontal: 12),
-          decoration: BoxDecoration(
-            color: colorScheme.primary,
-          ),
+          decoration: BoxDecoration(color: colorScheme.primary),
           child: Row(
             children: [
               Expanded(
@@ -46,14 +46,18 @@ class BonusesPlate extends StatelessWidget {
                       ),
                       child: Row(
                         children: [
-                          Text(
-                            bonusSum.toStringAsFixed(2).replaceFirst(RegExp(r'\.?0+$'), ''),
-                            style: TextStyle(
-                              color: colorScheme.surface,
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
+                          isLoading
+                              ? const CircularProgressIndicator(strokeWidth: 2)
+                              : Text(
+                                  bonusSum
+                                      .toStringAsFixed(2)
+                                      .replaceFirst(RegExp(r'\.?0+$'), ''),
+                                  style: TextStyle(
+                                    color: colorScheme.surface,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
                           const SizedBox(width: 5),
                           Text(
                             'B',

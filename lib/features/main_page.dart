@@ -331,7 +331,7 @@ class _MainPageState extends State<MainPage> {
 
   @override
   Widget build(BuildContext context) {
-    final loading = _isCompany == null;
+    final loading = _isRefreshing;
 
     final pages = [
       //HomePage(onRefresh: _refresh, companies: _companies),
@@ -344,7 +344,7 @@ class _MainPageState extends State<MainPage> {
       //    });
       //  },
       //),
-      CardsPage(onRefresh: _refresh, cards: _cards),
+      CardsPage(onRefresh: _refresh, cards: _cards, isLoading: _checksLoading,),
       // PromocodesPage(activatedPromocodeId: _activatedPromocodeId),
       if (_isCompany == true) const CompanyPage(),
       const SizedBox.shrink(),
@@ -496,6 +496,7 @@ class _MainPageState extends State<MainPage> {
                       _companies.length - 1 >= _selectedCompanyIndex)
                     BonusesPlate(
                       bonusSum: _bonuses,
+                      isLoading: _checksLoading,
                       imageUrl: _minio.imageUrlFromBucket(
                         'companies',
                         '${_companies[_selectedCompanyIndex].id}.png',

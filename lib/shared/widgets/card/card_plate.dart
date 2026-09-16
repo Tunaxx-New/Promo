@@ -95,7 +95,7 @@ class _CardPlateState extends State<CardPlate> {
         child: Container(
           width: double.infinity,
           decoration: BoxDecoration(
-            color: colorScheme.surfaceContainerHighest,
+            color: colorScheme.onSurface,
             borderRadius: BorderRadius.circular(12),
           ),
           child: Column(
@@ -109,7 +109,8 @@ class _CardPlateState extends State<CardPlate> {
                       Expanded(
                         child: Text(
                           widget.title!,
-                          style: Theme.of(context).textTheme.titleMedium,
+                          style: Theme.of(context).textTheme.titleMedium
+                              ?.copyWith(color: colorScheme.surface),
                         ),
                       ),
                     ],
@@ -137,7 +138,8 @@ class _CardPlateState extends State<CardPlate> {
                             isActive
                                 ? context.l10n.refresh_in
                                 : context.l10n.code_has_expired,
-                            style: Theme.of(context).textTheme.bodySmall,
+                            style: Theme.of(context).textTheme.bodySmall
+                                ?.copyWith(color: colorScheme.surface),
                           ),
                         ),
                         // Timer
@@ -154,7 +156,10 @@ class _CardPlateState extends State<CardPlate> {
                               Text(
                                 formatTime(_remainingSeconds),
                                 style: Theme.of(context).textTheme.labelSmall
-                                    ?.copyWith(fontWeight: FontWeight.bold),
+                                    ?.copyWith(
+                                      fontWeight: FontWeight.bold,
+                                      color: colorScheme.surface,
+                                    ),
                               ),
                             ],
                           ),
