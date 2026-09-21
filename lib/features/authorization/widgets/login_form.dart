@@ -25,7 +25,7 @@ class LoginForm extends StatelessWidget {
           label: context.l10n.authorizationPhoneTitle,
           required: true,
         ),
-        ApiField.hidden(key: 'platform', initialValue: 'GREENAPI'),
+        ApiField.hidden(key: 'platform', initialValue: 'WHATSAPP'),
         ApiField.hidden(key: 'action', initialValue: 'reset_token'),
       ],
       onSuccess: (json) {

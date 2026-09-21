@@ -46,7 +46,7 @@ class RegisterForm extends StatelessWidget {
             method: HttpMethod.post,
             body: {
               'phone': data['phone'],
-              'platform': 'GREENAPI',
+              'platform': 'WHATSAPP',
               'action': 'reset_token',
             },
           );
