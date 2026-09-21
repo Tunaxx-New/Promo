@@ -9,7 +9,9 @@ import 'package:promo/features/map/widgets/points_counter.dart';
 import 'package:promo/shared/extensions/localization_extension.dart';
 import 'package:promo/shared/models/map_point.dart';
 import 'package:promo/shared/theme/app_colors.dart';
+import 'package:promo/shared/theme/app_strings.dart';
 import 'package:promo/shared/widgets/api_form/http_method.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class MapPage extends StatefulWidget {
   const MapPage({super.key});
@@ -126,6 +128,18 @@ class _MapPageState extends State<MapPage> {
             TileLayer(
               urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
               userAgentPackageName: 'kz.nikita.lider',
+            ),
+
+            RichAttributionWidget(
+              attributions: [
+                TextSourceAttribution(
+                  'OpenStreetMap contributors',
+                  onTap: () => launchUrl(
+                    Uri.parse('https://www.openstreetmap.org/copyright'),
+                  ),
+                ),
+                TextSourceAttribution(AppStrings.companyName),
+              ],
             ),
 
             MarkerLayer(
