@@ -522,4 +522,34 @@ class AppLocalizationsKk extends AppLocalizations {
 
   @override
   String get hectopascals => 'гПа';
+
+  @override
+  String get currency => 'Currency';
+
+  @override
+  String get price => 'Price';
+
+  @override
+  String get priceType => 'Price Type';
+
+  @override
+  String get naming => 'Title';
+
+  @override
+  String get nothing_was_found => 'Nothing was found';
+
+  @override
+  String get services_search => 'Search services';
+
+  @override
+  String get without_company => 'Without company';
+
+  @override
+  String get services_that_app_added => 'Services that app added';
+
+  @override
+  String get from_services => 'services';
+
+  @override
+  String get contributors => 'contributors';
 }

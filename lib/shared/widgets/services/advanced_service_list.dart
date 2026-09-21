@@ -65,11 +65,11 @@ class _AdvancedServiceListState extends State<AdvancedServiceList> {
     for (final service in services) {
       final companyName = service.companyName?.isNotEmpty == true
           ? service.companyName!
-          : 'Без компании';
+          : context.l10n.without_company;
 
       final priceType = service.priceType?.isNotEmpty == true
           ? service.priceType!
-          : 'Услуги из скриншотов приложения';
+          : context.l10n.services_that_app_added;
 
       result
           .putIfAbsent(companyName, () => {})
@@ -106,7 +106,7 @@ class _AdvancedServiceListState extends State<AdvancedServiceList> {
           child: TextField(
             controller: _searchController,
             decoration: InputDecoration(
-              hintText: 'Поиск услуг',
+              hintText: context.l10n.services_search,
               prefixIcon: const Icon(Icons.search),
               suffixIcon: _searchQuery.isNotEmpty
                   ? IconButton(
@@ -125,7 +125,7 @@ class _AdvancedServiceListState extends State<AdvancedServiceList> {
 
         Expanded(
           child: filteredServices.isEmpty
-              ? const Center(child: Text('Ничего не найдено'))
+              ? Center(child: Text(context.l10n.nothing_was_found))
               : ListView(
                   padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
                   children: [
@@ -166,7 +166,7 @@ class _AdvancedServiceListState extends State<AdvancedServiceList> {
                               ),
                             ),
                             subtitle: Text(
-                              '${priceTypeEntry.value.length} услуг',
+                              '${priceTypeEntry.value.length} ${context.l10n.from_services}',
                               style: TextStyle(
                                 fontSize: 13,
                                 color: Theme.of(
@@ -251,7 +251,11 @@ class _ServiceTile extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Text(
-                  '+${service.bonusCount}',
+                  service.bonusCount != 0
+                      ? '+${service.bonusCount}'
+                      : service.price == null
+                      ? ''
+                      : '${service.price} ${currencyName(service.currency)}',
                   style: TextStyle(
                     color: theme.colorScheme.primary,
                     fontWeight: FontWeight.bold,
@@ -321,65 +325,70 @@ class _ServiceDetails extends StatelessWidget {
               if (service.priceType?.isNotEmpty == true)
                 _InfoRow(
                   icon: Icons.inventory_2_outlined,
-                  title: 'Наименование',
+                  title: context.l10n.naming,
                   value: service.priceType!,
                 ),
 
               if (service.description.isNotEmpty)
                 _InfoRow(
                   icon: Icons.description_outlined,
-                  title: 'Описание',
+                  title: context.l10n.description,
                   value: service.description,
                 ),
 
               if (service.priceType?.isNotEmpty == true)
                 _InfoRow(
                   icon: Icons.sell_outlined,
-                  title: 'Тип цены',
+                  title: context.l10n.priceType,
                   value: service.priceType!,
                 ),
 
               if (service.price != null)
                 _InfoRow(
                   icon: Icons.payments_outlined,
-                  title: 'Цена',
+                  title: context.l10n.price,
                   value: '${service.price}',
                 ),
 
               if (service.currency != null)
                 _InfoRow(
                   icon: Icons.currency_exchange,
-                  title: 'Валюта',
+                  title: context.l10n.currency,
                   value: currencyName(service.currency),
                 ),
 
               const SizedBox(height: 8),
 
-              Container(
-                width: double.infinity,
-                padding: const EdgeInsets.all(16),
-                decoration: BoxDecoration(
-                  color: theme.colorScheme.primary.withValues(alpha: 0.08),
-                  borderRadius: BorderRadius.circular(16),
-                ),
-                child: Row(
-                  children: [
-                    Icon(
-                      Icons.add_circle_outline,
-                      color: theme.colorScheme.primary,
-                    ),
-                    const SizedBox(width: 12),
-                    Text(
-                      '+${service.bonusCount} ${context.l10n.bonusov}',
-                      style: TextStyle(
+              if (service.bonusCount != 0)
+                Container(
+                  width: double.infinity,
+                  padding: const EdgeInsets.all(16),
+                  decoration: BoxDecoration(
+                    color: theme.colorScheme.primary.withValues(alpha: 0.08),
+                    borderRadius: BorderRadius.circular(16),
+                  ),
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.add_circle_outline,
                         color: theme.colorScheme.primary,
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
                       ),
-                    ),
-                  ],
+                      const SizedBox(width: 12),
+                      Text(
+                        service.bonusCount == 0
+                            ? service.price == null
+                                  ? ''
+                                  : '${service.price} ${currencyName(service.currency)}'
+                            : '+${service.bonusCount} ${context.l10n.bonusov}',
+                        style: TextStyle(
+                          color: theme.colorScheme.primary,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
             ],
           ),
         ),

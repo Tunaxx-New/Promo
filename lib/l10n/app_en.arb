@@ -216,5 +216,17 @@
   "weatherSnow": "Snow",
   "weatherThunderstorm": "Thunderstorm",
   "metersPerSecond": "m/s",
-  "hectopascals": "hPa"
+  "hectopascals": "hPa",
+
+  "currency": "Currency",
+  "price": "Price",
+  "priceType": "Price Type",
+  "naming": "Title",
+  "nothing_was_found": "Nothing was found",
+  "services_search": "Search services",
+  "without_company": "Without company",
+  "services_that_app_added": "Services that app added",
+  "from_services": "services",
+
+  "contributors": "contributors"
 }

@@ -1110,6 +1110,66 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'hPa'**
   String get hectopascals;
+
+  /// No description provided for @currency.
+  ///
+  /// In en, this message translates to:
+  /// **'Currency'**
+  String get currency;
+
+  /// No description provided for @price.
+  ///
+  /// In en, this message translates to:
+  /// **'Price'**
+  String get price;
+
+  /// No description provided for @priceType.
+  ///
+  /// In en, this message translates to:
+  /// **'Price Type'**
+  String get priceType;
+
+  /// No description provided for @naming.
+  ///
+  /// In en, this message translates to:
+  /// **'Title'**
+  String get naming;
+
+  /// No description provided for @nothing_was_found.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing was found'**
+  String get nothing_was_found;
+
+  /// No description provided for @services_search.
+  ///
+  /// In en, this message translates to:
+  /// **'Search services'**
+  String get services_search;
+
+  /// No description provided for @without_company.
+  ///
+  /// In en, this message translates to:
+  /// **'Without company'**
+  String get without_company;
+
+  /// No description provided for @services_that_app_added.
+  ///
+  /// In en, this message translates to:
+  /// **'Services that app added'**
+  String get services_that_app_added;
+
+  /// No description provided for @from_services.
+  ///
+  /// In en, this message translates to:
+  /// **'services'**
+  String get from_services;
+
+  /// No description provided for @contributors.
+  ///
+  /// In en, this message translates to:
+  /// **'contributors'**
+  String get contributors;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

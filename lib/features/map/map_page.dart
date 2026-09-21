@@ -133,7 +133,7 @@ class _MapPageState extends State<MapPage> {
             RichAttributionWidget(
               attributions: [
                 TextSourceAttribution(
-                  'OpenStreetMap contributors',
+                  'OpenStreetMap ${context.l10n.contributors}',
                   onTap: () => launchUrl(
                     Uri.parse('https://www.openstreetmap.org/copyright'),
                   ),

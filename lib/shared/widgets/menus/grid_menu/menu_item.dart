@@ -42,7 +42,7 @@ class MenuItem {
     ),
     MenuItem(
       id: 'ads',
-      label: 'Реклама',
+      label: context.l10n.ads,
       icon: Icons.campaign,
       iconColor: AppColors.accent,
     ),

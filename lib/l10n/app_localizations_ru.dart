@@ -522,4 +522,34 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get hectopascals => 'гПа';
+
+  @override
+  String get currency => 'Валюта';
+
+  @override
+  String get price => 'Баға';
+
+  @override
+  String get priceType => 'Баға түрі';
+
+  @override
+  String get naming => 'Атауы';
+
+  @override
+  String get nothing_was_found => 'Ештеңе табылмады';
+
+  @override
+  String get services_search => 'Қызметтерді іздеу';
+
+  @override
+  String get without_company => 'Компаниясыз';
+
+  @override
+  String get services_that_app_added => 'Қолданба қосқан қызметтер';
+
+  @override
+  String get from_services => 'қызметтер';
+
+  @override
+  String get contributors => 'үлес қосушылар';
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:promo/shared/extensions/localization_extension.dart';
+import 'package:promo/shared/formatters/currency_name.dart';
 import 'package:promo/shared/models/service.dart';
 import 'package:promo/shared/theme/app_colors.dart';
 import 'package:promo/shared/theme/app_theme.dart';
@@ -34,18 +35,19 @@ class ServiceBanner extends StatelessWidget {
           child: Row(
             children: [
               // Иконка слева
-              Container(
-                width: 44,
-                height: 44,
-                padding: const EdgeInsets.all(9),
-                decoration: const BoxDecoration(
-                  color: AppColors.primary,
-                  shape: BoxShape.circle,
+              if (service.bonusCount != 0)
+                Container(
+                  width: 44,
+                  height: 44,
+                  padding: const EdgeInsets.all(9),
+                  decoration: const BoxDecoration(
+                    color: AppColors.primary,
+                    shape: BoxShape.circle,
+                  ),
+                  child: service.imageUrl != null
+                      ? Image.network(service.imageUrl!, fit: BoxFit.contain)
+                      : const SizedBox.shrink(),
                 ),
-                child: service.imageUrl != null
-                    ? Image.network(service.imageUrl!, fit: BoxFit.contain)
-                    : const SizedBox.shrink(),
-              ),
 
               const SizedBox(width: 12),
 
@@ -68,7 +70,11 @@ class ServiceBanner extends StatelessWidget {
 
               // Бонусы справа
               Text(
-                '+${service.bonusCount}',
+                service.bonusCount != 0
+                    ? '+${service.bonusCount}'
+                    : service.price == null
+                    ? ''
+                    : '${service.price} ${currencyName(service.currency)}',
                 textAlign: TextAlign.right,
                 style: const TextStyle(
                   color: AppColors.textPrimary,
@@ -77,16 +83,17 @@ class ServiceBanner extends StatelessWidget {
                 ),
               ),
 
-              const SizedBox(width: 4),
-
-              Text(
-                context.l10n.bonusov,
-                style: TextStyle(
-                  color: AppColors.textPrimary,
-                  fontSize: 12,
-                  fontWeight: FontWeight.w500,
+              if (service.bonusCount != 0) ...[
+                const SizedBox(width: 4),
+                Text(
+                  context.l10n.bonusov,
+                  style: TextStyle(
+                    color: AppColors.textPrimary,
+                    fontSize: 12,
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
-              ),
+              ],
             ],
           ),
         ),
