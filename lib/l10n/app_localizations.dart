@@ -127,6 +127,18 @@ abstract class AppLocalizations {
   /// **'privacy policy'**
   String get privacyPolicy;
 
+  /// No description provided for @privacyPolicyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Privacy Policy'**
+  String get privacyPolicyTitle;
+
+  /// No description provided for @termOfUseTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Terms of Use'**
+  String get termOfUseTitle;
+
   /// No description provided for @promocode.
   ///
   /// In en, this message translates to:
@@ -748,8 +760,8 @@ abstract class AppLocalizations {
   /// No description provided for @until_next_level.
   ///
   /// In en, this message translates to:
-  /// **'Until next level'**
-  String get until_next_level;
+  /// **'Until next level ({level})'**
+  String until_next_level(Object level);
 
   /// No description provided for @washing.
   ///
@@ -781,11 +793,35 @@ abstract class AppLocalizations {
   /// **'Partner'**
   String get partner;
 
+  /// No description provided for @auto.
+  ///
+  /// In en, this message translates to:
+  /// **'Auto'**
+  String get auto;
+
+  /// No description provided for @company.
+  ///
+  /// In en, this message translates to:
+  /// **'Company'**
+  String get company;
+
   /// No description provided for @useful.
   ///
   /// In en, this message translates to:
   /// **'Useful'**
   String get useful;
+
+  /// No description provided for @new_.
+  ///
+  /// In en, this message translates to:
+  /// **'New'**
+  String get new_;
+
+  /// No description provided for @all.
+  ///
+  /// In en, this message translates to:
+  /// **'All'**
+  String get all;
 
   /// No description provided for @read_more.
   ///
@@ -811,6 +847,12 @@ abstract class AppLocalizations {
   /// **'News'**
   String get news;
 
+  /// No description provided for @no_news.
+  ///
+  /// In en, this message translates to:
+  /// **'No news'**
+  String get no_news;
+
   /// No description provided for @main.
   ///
   /// In en, this message translates to:
@@ -829,11 +871,35 @@ abstract class AppLocalizations {
   /// **'Map'**
   String get map;
 
+  /// No description provided for @mapPoints.
+  ///
+  /// In en, this message translates to:
+  /// **'points'**
+  String get mapPoints;
+
+  /// No description provided for @mapLoadError.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to load map points'**
+  String get mapLoadError;
+
+  /// No description provided for @retry.
+  ///
+  /// In en, this message translates to:
+  /// **'Retry'**
+  String get retry;
+
   /// No description provided for @profile.
   ///
   /// In en, this message translates to:
   /// **'Profile'**
   String get profile;
+
+  /// No description provided for @spend.
+  ///
+  /// In en, this message translates to:
+  /// **'Spend'**
+  String get spend;
 
   /// No description provided for @spend_bonuses.
   ///
@@ -883,6 +949,12 @@ abstract class AppLocalizations {
   /// **'About app'**
   String get about_app;
 
+  /// No description provided for @current.
+  ///
+  /// In en, this message translates to:
+  /// **'Current'**
+  String get current;
+
   /// No description provided for @bronze.
   ///
   /// In en, this message translates to:
@@ -901,17 +973,143 @@ abstract class AppLocalizations {
   /// **'Gold'**
   String get gold;
 
-  /// No description provided for @diamon.
+  /// No description provided for @diamond.
   ///
   /// In en, this message translates to:
   /// **'Diamond'**
-  String get diamon;
+  String get diamond;
 
   /// No description provided for @guest.
   ///
   /// In en, this message translates to:
   /// **'Guest'**
   String get guest;
+
+  /// No description provided for @is_not_available_yet.
+  ///
+  /// In en, this message translates to:
+  /// **'is not available yet'**
+  String get is_not_available_yet;
+
+  /// No description provided for @show_code_to_cassier.
+  ///
+  /// In en, this message translates to:
+  /// **'Show code to cassier'**
+  String get show_code_to_cassier;
+
+  /// No description provided for @searchCityHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Search city'**
+  String get searchCityHint;
+
+  /// No description provided for @selectCity.
+  ///
+  /// In en, this message translates to:
+  /// **'Select City'**
+  String get selectCity;
+
+  /// No description provided for @humidity.
+  ///
+  /// In en, this message translates to:
+  /// **'Humidity'**
+  String get humidity;
+
+  /// No description provided for @wind.
+  ///
+  /// In en, this message translates to:
+  /// **'Wind'**
+  String get wind;
+
+  /// No description provided for @pressure.
+  ///
+  /// In en, this message translates to:
+  /// **'Pressure'**
+  String get pressure;
+
+  /// No description provided for @errorLoadingWeather.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to load weather'**
+  String get errorLoadingWeather;
+
+  /// No description provided for @noCitiesResults.
+  ///
+  /// In en, this message translates to:
+  /// **'No cities found'**
+  String get noCitiesResults;
+
+  /// No description provided for @changeCity.
+  ///
+  /// In en, this message translates to:
+  /// **'Change city'**
+  String get changeCity;
+
+  /// No description provided for @weatherClear.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear'**
+  String get weatherClear;
+
+  /// No description provided for @weatherPartlyCloudy.
+  ///
+  /// In en, this message translates to:
+  /// **'Partly cloudy'**
+  String get weatherPartlyCloudy;
+
+  /// No description provided for @weatherCloudy.
+  ///
+  /// In en, this message translates to:
+  /// **'Cloudy'**
+  String get weatherCloudy;
+
+  /// No description provided for @weatherOvercast.
+  ///
+  /// In en, this message translates to:
+  /// **'Overcast'**
+  String get weatherOvercast;
+
+  /// No description provided for @weatherFog.
+  ///
+  /// In en, this message translates to:
+  /// **'Fog'**
+  String get weatherFog;
+
+  /// No description provided for @weatherDrizzle.
+  ///
+  /// In en, this message translates to:
+  /// **'Drizzle'**
+  String get weatherDrizzle;
+
+  /// No description provided for @weatherRain.
+  ///
+  /// In en, this message translates to:
+  /// **'Rain'**
+  String get weatherRain;
+
+  /// No description provided for @weatherSnow.
+  ///
+  /// In en, this message translates to:
+  /// **'Snow'**
+  String get weatherSnow;
+
+  /// No description provided for @weatherThunderstorm.
+  ///
+  /// In en, this message translates to:
+  /// **'Thunderstorm'**
+  String get weatherThunderstorm;
+
+  /// No description provided for @metersPerSecond.
+  ///
+  /// In en, this message translates to:
+  /// **'m/s'**
+  String get metersPerSecond;
+
+  /// No description provided for @hectopascals.
+  ///
+  /// In en, this message translates to:
+  /// **'hPa'**
+  String get hectopascals;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

@@ -101,22 +101,6 @@ class _CardPlateState extends State<CardPlate> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              if (widget.title != null)
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(16, 12, 16, 8),
-                  child: Row(
-                    children: [
-                      Expanded(
-                        child: Text(
-                          widget.title!,
-                          style: Theme.of(context).textTheme.titleMedium
-                              ?.copyWith(color: colorScheme.surface),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-
               Container(
                 width: double.infinity,
                 padding: const EdgeInsets.symmetric(
@@ -130,8 +114,17 @@ class _CardPlateState extends State<CardPlate> {
                 child: Column(
                   children: [
                     Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        const Spacer(),
+                        if (widget.title != null)
+                          Expanded(
+                            child: Text(
+                              widget.title!,
+                              style: Theme.of(context).textTheme.titleMedium
+                                  ?.copyWith(color: colorScheme.surface),
+                            ),
+                          ),
+
                         Padding(
                           padding: const EdgeInsets.all(12),
                           child: Text(
@@ -142,7 +135,7 @@ class _CardPlateState extends State<CardPlate> {
                                 ?.copyWith(color: colorScheme.surface),
                           ),
                         ),
-                        // Timer
+
                         SizedBox(
                           width: 44,
                           height: 44,
@@ -169,13 +162,13 @@ class _CardPlateState extends State<CardPlate> {
 
                     const SizedBox(height: 12),
 
-                    // Barcode
                     BarcodeWidget(
                       barcode: Barcode.code128(),
                       data: widget.barcode,
                       height: 70,
                       drawText: false,
                     ),
+
                     const SizedBox(height: 6),
 
                     Text(formatCardId(widget.barcode)),

@@ -28,6 +28,12 @@ class AppLocalizationsKk extends AppLocalizations {
   String get privacyPolicy => 'құпиялылық саясатымен';
 
   @override
+  String get privacyPolicyTitle => 'Құпиялылық саясаты';
+
+  @override
+  String get termOfUseTitle => 'Terms of Use';
+
+  @override
   String get promocode => 'промокод';
 
   @override
@@ -339,7 +345,9 @@ class AppLocalizationsKk extends AppLocalizations {
   String get your_bonusov => 'Сіздің бонустарыңыз';
 
   @override
-  String get until_next_level => 'Келесі деңгейге дейін';
+  String until_next_level(Object level) {
+    return 'Келесі деңгейге дейін ($level)';
+  }
 
   @override
   String get washing => 'Жуу';
@@ -357,7 +365,19 @@ class AppLocalizationsKk extends AppLocalizations {
   String get partner => 'Серіктестер';
 
   @override
+  String get auto => 'Auto';
+
+  @override
+  String get company => 'Компания';
+
+  @override
   String get useful => 'Пайдалы';
+
+  @override
+  String get new_ => 'Жаңа';
+
+  @override
+  String get all => 'Барлығы';
 
   @override
   String get read_more => 'Қосымша мәліметтер';
@@ -372,6 +392,9 @@ class AppLocalizationsKk extends AppLocalizations {
   String get news => 'Жаңалықтар';
 
   @override
+  String get no_news => 'Жаңалықтар жоқ';
+
+  @override
   String get main => 'Басты бет';
 
   @override
@@ -381,7 +404,19 @@ class AppLocalizationsKk extends AppLocalizations {
   String get map => 'Карта';
 
   @override
+  String get mapPoints => 'ұпайлар';
+
+  @override
+  String get mapLoadError => 'Карта нүктелерін жүктеу сәтсіз аяқталды';
+
+  @override
+  String get retry => 'Retry';
+
+  @override
   String get profile => 'Профиль';
+
+  @override
+  String get spend => 'Жұмса';
 
   @override
   String get spend_bonuses => 'Бонустарды жұмсау';
@@ -408,6 +443,9 @@ class AppLocalizationsKk extends AppLocalizations {
   String get about_app => 'Қолданба туралы';
 
   @override
+  String get current => 'Ағымдағы';
+
+  @override
   String get bronze => 'Қола';
 
   @override
@@ -417,8 +455,71 @@ class AppLocalizationsKk extends AppLocalizations {
   String get gold => 'Алтын';
 
   @override
-  String get diamon => 'Diamond';
+  String get diamond => 'Гауһар';
 
   @override
   String get guest => 'Қонақ';
+
+  @override
+  String get is_not_available_yet => 'әлі қолжетімді емес';
+
+  @override
+  String get show_code_to_cassier => 'Кодты кассирге көрсету';
+
+  @override
+  String get searchCityHint => 'Қаланы іздеу';
+
+  @override
+  String get selectCity => 'Қаланы таңдау';
+
+  @override
+  String get humidity => 'Ылғалдылық';
+
+  @override
+  String get wind => 'Жел';
+
+  @override
+  String get pressure => 'Қысым';
+
+  @override
+  String get errorLoadingWeather => 'Ауа райы туралы деректерді жүктеу мүмкін болмады';
+
+  @override
+  String get noCitiesResults => 'Қалалар табылмады';
+
+  @override
+  String get changeCity => 'Қаланы өзгерту';
+
+  @override
+  String get weatherClear => 'Ашық';
+
+  @override
+  String get weatherPartlyCloudy => 'Аздап бұлтты';
+
+  @override
+  String get weatherCloudy => 'Бұлтты';
+
+  @override
+  String get weatherOvercast => 'Тұтас бұлтты';
+
+  @override
+  String get weatherFog => 'Тұман';
+
+  @override
+  String get weatherDrizzle => 'Сіркіреген жаңбыр';
+
+  @override
+  String get weatherRain => 'Жаңбыр';
+
+  @override
+  String get weatherSnow => 'Қар';
+
+  @override
+  String get weatherThunderstorm => 'Найзағай';
+
+  @override
+  String get metersPerSecond => 'м/с';
+
+  @override
+  String get hectopascals => 'гПа';
 }

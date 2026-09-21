@@ -88,11 +88,11 @@ class _AdvancedPromocodeCardState extends State<AdvancedPromocodeCard> {
             _field(context.l10n.description, widget.promocode['description']),
             _field(
               context.l10n.starts_at,
-              formatDate(widget.promocode['starts_at']),
+              formatDate(context, widget.promocode['starts_at']),
             ),
             _field(
               context.l10n.expires_at,
-              formatDate(widget.promocode['expires_at']),
+              formatDate(context, widget.promocode['expires_at']),
             ),
             _field(
               context.l10n.discount_percent,

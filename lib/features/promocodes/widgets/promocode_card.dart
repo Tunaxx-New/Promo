@@ -32,9 +32,9 @@ class PromocodeCard extends StatelessWidget {
 
     final used = userPromocode['is_used'] == true;
 
-    final activatedAt = formatDate(userPromocode['activated_at']?.toString());
+    final activatedAt = formatDate(context, userPromocode['activated_at']?.toString());
 
-    final usedAt = formatDate(userPromocode['used_at']?.toString());
+    final usedAt = formatDate(context, userPromocode['used_at']?.toString());
 
     return Card(
       elevation: 0,

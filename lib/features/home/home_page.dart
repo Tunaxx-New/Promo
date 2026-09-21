@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:promo/core/api/minio.dart';
-import 'package:promo/features/home/widgets/promotion_card.dart';
+import 'package:promo/shared/models/promotion.dart';
+import 'package:promo/shared/widgets/promotions/promotion_card.dart';
 import 'package:promo/shared/extensions/localization_extension.dart';
 import 'package:promo/shared/models/company.dart';
 import 'package:promo/shared/widgets/error_handler.dart';
@@ -23,7 +24,7 @@ class _HomePageState extends State<HomePage> {
   bool _hasMore = true;
   int _offset = 0;
 
-  List<Map<String, dynamic>> _promotions = [];
+  List<Promotion> _promotions = [];
 
   final ScrollController _scrollController = ScrollController();
 
@@ -115,13 +116,13 @@ class _HomePageState extends State<HomePage> {
       Company? company;
 
       for (final item in widget.companies) {
-        if (item.id == promotion['company_id']) {
+        if (item.id == promotion.companyId) {
           company = item;
           break;
         }
       }
       
-      promotion['company_name'] = company?.name ?? '-';
+      promotion.companyName = company?.name ?? '-';
     }
 
     return Column(

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:promo/shared/extensions/localization_extension.dart';
 import 'package:promo/shared/formatters/form_date.dart';
+import 'package:promo/shared/models/promotion.dart';
 
 class PromotionCard extends StatelessWidget {
-  final Map<String, dynamic> promotion;
+  final Promotion promotion;
 
   const PromotionCard({super.key, required this.promotion});
 
@@ -20,7 +21,7 @@ class PromotionCard extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  if (promotion['image_url'] != null)
+                  if (promotion.imageUrl != null)
                     ClipRRect(
                       borderRadius: const BorderRadius.vertical(
                         top: Radius.circular(12),
@@ -29,7 +30,7 @@ class PromotionCard extends StatelessWidget {
                         width: double.maxFinite,
                         height: 200,
                         child: Image.network(
-                          promotion['image_url'],
+                          promotion.imageUrl!,
                           width: double.infinity,
                           height: 220,
                           fit: BoxFit.cover,
@@ -43,20 +44,23 @@ class PromotionCard extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          promotion['title'] ?? '-',
+                          promotion.title,
                           style: Theme.of(context).textTheme.titleLarge,
                         ),
 
                         const SizedBox(height: 12),
 
-                        _field(context.l10n.companyTitle, promotion['company_name']),
+                        _field(
+                          context.l10n.companyTitle,
+                          promotion.companyName,
+                        ),
 
-                        _field(context.l10n.created_at, promotion['created_at']),
+                        _field(context.l10n.created_at, promotion.createdAt),
 
                         const SizedBox(height: 12),
 
                         Text(
-                          promotion['description'] ?? '-',
+                          promotion.description ?? '-',
                           style: Theme.of(context).textTheme.bodyMedium,
                         ),
                       ],
@@ -106,12 +110,12 @@ class PromotionCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            if (promotion['image_url'] != null)
+            if (promotion.imageUrl != null)
               SizedBox(
                 width: double.infinity,
                 height: 180,
                 child: Image.network(
-                  promotion['image_url'],
+                  promotion.imageUrl!,
                   fit: BoxFit.cover,
                   errorBuilder: (_, __, ___) {
                     return const Center(
@@ -127,7 +131,7 @@ class PromotionCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    promotion['title'] ?? '-',
+                    promotion.title,
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                     style: Theme.of(context).textTheme.titleMedium,
@@ -135,12 +139,12 @@ class PromotionCard extends StatelessWidget {
 
                   const SizedBox(height: 8),
 
-                  Text('${context.l10n.companyTitle}: ${promotion['name'] ?? '-'}'),
+                  Text('${context.l10n.companyTitle}: ${promotion.title}'),
 
                   const SizedBox(height: 4),
 
                   Text(
-                    '${context.l10n.created_at}: ${promotion['created_at'] != null ? formatDate(promotion['created_at']) : '-'}',
+                    '${context.l10n.created_at}: ${formatDate(context, promotion.createdAt.toString())}',
                     style: Theme.of(context).textTheme.bodySmall,
                   ),
                 ],

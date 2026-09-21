@@ -4,24 +4,21 @@ import 'package:promo/shared/formatters/form_date.dart';
 import 'package:promo/shared/formatters/form_money.dart';
 import 'package:promo/shared/models/payment_check.dart';
 import 'package:promo/shared/theme/app_strings.dart';
+import 'package:promo/shared/widgets/bonuses/coin_icon.dart';
 
 class PaymentCheckCard extends StatelessWidget {
   final PaymentCheck check;
   final VoidCallback onTap;
 
-  const PaymentCheckCard({
-    super.key,
-    required this.check,
-    required this.onTap,
-  });
+  const PaymentCheckCard({super.key, required this.check, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
     final bonusColor = check.bonusSum > 0
-        ? Colors.green
+        ? Theme.of(context).colorScheme.onSurface
         : check.bonusSum < 0
-            ? Colors.red
-            : null;
+        ? Colors.red
+        : null;
 
     final bonusText = check.bonusSum > 0
         ? '+${check.bonusSum}'
@@ -41,10 +38,9 @@ class PaymentCheckCard extends StatelessWidget {
                 height: 46,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(14),
-                  color: Theme.of(context)
-                      .colorScheme
-                      .primary
-                      .withValues(alpha: 0.1),
+                  color: Theme.of(
+                    context,
+                  ).colorScheme.primary.withValues(alpha: 0.1),
                 ),
                 child: Icon(
                   Icons.receipt_long_outlined,
@@ -59,13 +55,11 @@ class PaymentCheckCard extends StatelessWidget {
                   children: [
                     Text(
                       AppStrings.companyName,
-                      style: const TextStyle(
-                        fontWeight: FontWeight.w600,
-                      ),
+                      style: const TextStyle(fontWeight: FontWeight.w600),
                     ),
                     const SizedBox(height: 4),
                     Text(
-                      formatDate(check.processedAt.toString()),
+                      formatDate(context, check.processedAt.toString()),
                       style: Theme.of(context).textTheme.bodySmall,
                     ),
                     const SizedBox(height: 4),
@@ -80,12 +74,18 @@ class PaymentCheckCard extends StatelessWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  Text(
-                    bonusText,
-                    style: TextStyle(
-                      color: bonusColor,
-                      fontWeight: FontWeight.bold,
-                    ),
+                  Row(
+                    children: [
+                      Text(
+                        bonusText,
+                        style: TextStyle(
+                          color: bonusColor,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      const SizedBox(width: 8),
+                      const CoinIcon(width: 24, height: 24, fontSize: 16,),
+                    ],
                   ),
                   const SizedBox(height: 4),
                   Icon(

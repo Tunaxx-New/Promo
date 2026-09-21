@@ -287,7 +287,7 @@ class _CompanyPageState extends State<CompanyPage> {
                       _field(context.l10n.id, _company!['id']),
                       _field(
                         context.l10n.created,
-                        formatDate(_company!['created_at']),
+                        formatDate(context, _company!['created_at']),
                       ),
                     ],
                   ),

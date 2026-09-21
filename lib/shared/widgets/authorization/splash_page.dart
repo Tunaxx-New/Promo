@@ -14,7 +14,7 @@ class SplashPage extends StatefulWidget {
   State<SplashPage> createState() => _SplashPageState();
 }
 
-class _SplashPageState extends State<SplashPage> {
+class _SplashPageState extends State<SplashPage> with RouteAware {
   final _auth = AuthorizationService();
 
   @override
@@ -23,6 +23,11 @@ class _SplashPageState extends State<SplashPage> {
     Future.delayed(const Duration(seconds: 2), () {
       _initialize();
     });
+  }
+
+  @override
+  void didPopNext() {
+    _initialize();
   }
 
   Future<void> _initialize() async {
@@ -55,7 +60,7 @@ class _SplashPageState extends State<SplashPage> {
   }
 
   void _goToMain() {
-    Navigator.pushNamed(context, AppRoutes.home);
+    Navigator.pushReplacementNamed(context, AppRoutes.home);
   }
 
   void _goToAuthorization() {

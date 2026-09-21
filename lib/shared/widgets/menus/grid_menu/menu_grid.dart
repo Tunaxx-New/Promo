@@ -21,7 +21,7 @@ class MenuGrid extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
-    final menuItems = items ?? MenuItem.defaults(colorScheme);
+    final menuItems = items ?? MenuItem.defaults(colorScheme, context);
 
     return GlassCard(
       padding: const EdgeInsets.all(12),

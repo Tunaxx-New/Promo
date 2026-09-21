@@ -43,7 +43,7 @@ class KazakhstanPhoneFormatter extends TextInputFormatter {
       digits = digits.substring(0, 11);
     }
 
-    final text = _format(digits);
+    final text = format(digits);
 
     // Calculate cursor position in formatted text.
     final targetDigitPosition = digitsBeforeCursor.clamp(0, digits.length);
@@ -76,7 +76,7 @@ class KazakhstanPhoneFormatter extends TextInputFormatter {
     );
   }
 
-  String _format(String digits) {
+  String format(String digits) {
     final buffer = StringBuffer('+7');
 
     if (digits.length > 1) {

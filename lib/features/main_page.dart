@@ -515,6 +515,7 @@ class _MainPageState extends State<MainPage> {
 
                   if (_cardCode != null)
                     CardPlate(
+                      title: context.l10n.show_code_to_cassier,
                       barcode: _cardCode!,
                       onExpired: _loadCardCode,
                       key: ValueKey(_cardCodeVersion),

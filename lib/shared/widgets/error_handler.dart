@@ -29,7 +29,7 @@ class ErrorHandler {
       ..showSnackBar(
         SnackBar(
           duration: const Duration(seconds: 4),
-          backgroundColor: color ?? Colors.red.shade100,
+          backgroundColor: color ?? Colors.red.shade500,
           content: Row(
             children: [
               const Icon(Icons.error_outline, color: Colors.white),

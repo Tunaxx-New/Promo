@@ -28,6 +28,12 @@ class AppLocalizationsRu extends AppLocalizations {
   String get privacyPolicy => 'политикой конфиденциальности';
 
   @override
+  String get privacyPolicyTitle => 'Политика конфиденциальности';
+
+  @override
+  String get termOfUseTitle => 'Условия использования';
+
+  @override
   String get promocode => 'промокод';
 
   @override
@@ -97,7 +103,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get hintSaveThisToken => 'Запишите токен безопасности и сохраните его в надежном месте. ЭТОТ ТОКЕН ВИДЕН ТОЛЬКО ПРИ СОЗДАНИИ!';
 
   @override
-  String get userUpdateTitle => 'Профиля пользователя';
+  String get userUpdateTitle => 'Обновить профиль';
 
   @override
   String get username => 'ФИО';
@@ -339,7 +345,9 @@ class AppLocalizationsRu extends AppLocalizations {
   String get your_bonusov => 'Ваши бонусов';
 
   @override
-  String get until_next_level => 'До следующего уровня';
+  String until_next_level(Object level) {
+    return 'До следующего уровня $level';
+  }
 
   @override
   String get washing => 'Мойка';
@@ -357,7 +365,19 @@ class AppLocalizationsRu extends AppLocalizations {
   String get partner => 'Партнер';
 
   @override
+  String get auto => 'Авто';
+
+  @override
+  String get company => 'Компания';
+
+  @override
   String get useful => 'Полезное';
+
+  @override
+  String get new_ => 'Новое';
+
+  @override
+  String get all => 'Всё';
 
   @override
   String get read_more => 'Подробнее';
@@ -372,6 +392,9 @@ class AppLocalizationsRu extends AppLocalizations {
   String get news => 'Новости';
 
   @override
+  String get no_news => 'Нет новостей';
+
+  @override
   String get main => 'Главная';
 
   @override
@@ -381,7 +404,19 @@ class AppLocalizationsRu extends AppLocalizations {
   String get map => 'Карта';
 
   @override
+  String get mapPoints => 'точек';
+
+  @override
+  String get mapLoadError => 'Не удалось загрузить точки карты';
+
+  @override
+  String get retry => 'Повторная попытка';
+
+  @override
   String get profile => 'Профиль';
+
+  @override
+  String get spend => 'Потратить';
 
   @override
   String get spend_bonuses => 'Потратить бонусы';
@@ -408,6 +443,9 @@ class AppLocalizationsRu extends AppLocalizations {
   String get about_app => 'О приложении';
 
   @override
+  String get current => 'Текущий';
+
+  @override
   String get bronze => 'Бронза';
 
   @override
@@ -417,8 +455,71 @@ class AppLocalizationsRu extends AppLocalizations {
   String get gold => 'Золото';
 
   @override
-  String get diamon => 'Бриллиант';
+  String get diamond => 'Бриллиант';
 
   @override
   String get guest => 'Гость';
+
+  @override
+  String get is_not_available_yet => 'пока недоступны';
+
+  @override
+  String get show_code_to_cassier => 'Показать код кассиру';
+
+  @override
+  String get searchCityHint => 'Поиск города';
+
+  @override
+  String get selectCity => 'Выберите город';
+
+  @override
+  String get humidity => 'Влажность';
+
+  @override
+  String get wind => 'Ветер';
+
+  @override
+  String get pressure => 'Давление';
+
+  @override
+  String get errorLoadingWeather => 'Не удалось загрузить данные о погоде';
+
+  @override
+  String get noCitiesResults => 'Города не найдены';
+
+  @override
+  String get changeCity => 'Сменить город';
+
+  @override
+  String get weatherClear => 'Ясно';
+
+  @override
+  String get weatherPartlyCloudy => 'Переменная облачность';
+
+  @override
+  String get weatherCloudy => 'Облачно';
+
+  @override
+  String get weatherOvercast => 'Пасмурно';
+
+  @override
+  String get weatherFog => 'Туман';
+
+  @override
+  String get weatherDrizzle => 'Морось';
+
+  @override
+  String get weatherRain => 'Дождь';
+
+  @override
+  String get weatherSnow => 'Снег';
+
+  @override
+  String get weatherThunderstorm => 'Гроза';
+
+  @override
+  String get metersPerSecond => 'м/с';
+
+  @override
+  String get hectopascals => 'гПа';
 }

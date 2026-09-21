@@ -4,12 +4,20 @@ import 'package:promo/shared/models/payment_check.dart';
 import 'package:promo/shared/models/payment_check_product.dart';
 import 'package:promo/shared/widgets/bonuses/check_card.dart';
 import 'package:promo/shared/widgets/bonuses/check_card_details.dart';
+import 'package:promo/shared/widgets/bonuses/coin_icon.dart';
 import 'package:promo/shared/widgets/bonuses/expired_bonuses_page.dart';
 
 class BonusesDetails extends StatefulWidget {
   final List<PaymentCheck> checks;
+  final Color? appBarBackgroundColor;
+  final bool isBackButton;
 
-  const BonusesDetails({super.key, required this.checks});
+  const BonusesDetails({
+    super.key,
+    required this.checks,
+    this.appBarBackgroundColor,
+    this.isBackButton = true,
+  });
 
   @override
   State<BonusesDetails> createState() => _BonusesDetailsState();
@@ -39,7 +47,11 @@ class _BonusesDetailsState extends State<BonusesDetails> {
     );
 
     return Scaffold(
-      appBar: AppBar(title: Text(context.l10n.bonuses)),
+      appBar: AppBar(
+        title: Text(context.l10n.bonuses),
+        backgroundColor: widget.appBarBackgroundColor,
+        automaticallyImplyLeading: widget.isBackButton,
+      ),
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
@@ -123,12 +135,22 @@ class _BonusesSummary extends StatelessWidget {
                       style: theme.textTheme.bodyMedium,
                     ),
                     const SizedBox(height: 6),
-                    Text(
-                      '+${bonusSum.toStringAsFixed(2).replaceFirst(RegExp(r'\.?0+$'), '')}',
-                      style: theme.textTheme.titleLarge?.copyWith(
-                        fontWeight: FontWeight.bold,
-                        color: Colors.green,
-                      ),
+                    Row(
+                      children: [
+                        Text(
+                          '+${bonusSum.toStringAsFixed(2).replaceFirst(RegExp(r'\.?0+$'), '')}',
+                          style: theme.textTheme.titleLarge?.copyWith(
+                            fontWeight: FontWeight.bold,
+                            color: Theme.of(context).colorScheme.onSurface,
+                          ),
+                        ),
+                        const SizedBox(width: 8),
+                        SizedBox(
+                          width: 32,
+                          height: 32,
+                          child: const CoinIcon(),
+                        ),
+                      ],
                     ),
                   ],
                 ),

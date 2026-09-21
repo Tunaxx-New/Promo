@@ -11,7 +11,6 @@ class AppColors {
   static const textColorOnBackground = Colors.white;
   static const textColorOnBackgroundLight = Color(0xFFEEEEEE);
 
-
   // New interface colors
   // Фон экрана — вертикальный градиент от почти чёрного к тёмно-синему.
   static const Color backgroundTop = Color(0xFF040A16);
@@ -22,11 +21,18 @@ class AppColors {
   static const Color surfaceLight = Color(0xFF123156);
   static const Color border = Color(0x3355A8FF);
 
+  // Level colors
+  static const Color bronze = Color(0xFFCD7F32);
+  static const Color silver = Color(0xFFC0C0C0);
+  static const Color gold = Color(0xFFF5C518);
+  static const Color diamond = Color.fromARGB(255, 167, 224, 255);
+
   // Акценты.
   static const Color accent = Color(0xFF1E88FF);
   static const Color accentDark = Color(0xFF0B5FD0);
-  static const Color gold = Color(0xFFF5C518);
   static const Color danger = Color(0xFFE23B4E);
+  static const Color success = Color(0xFF34C759);
+  static const Color info = Color(0xFF007AFF);
 
   // Текст.
   static const Color textPrimary = Color(0xFFFFFFFF);

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:promo/core/api/api.dart';
 import 'package:promo/features/authorization/widgets/code_form.dart';
 import 'package:promo/shared/extensions/localization_extension.dart';
+import 'package:promo/shared/theme/app_strings.dart';
 import 'package:promo/shared/widgets/api_form/api_form.dart';
 import 'package:promo/shared/widgets/api_form/api_field.dart';
 import 'package:promo/shared/widgets/api_form/http_method.dart';
@@ -15,6 +16,7 @@ class LoginForm extends StatelessWidget {
       apiClient: api,
       title: context.l10n.authorizationLoginTitle,
       submitTitle: context.l10n.authorizationGetCodeTitle,
+      privacyPolicyUrl: AppStrings.privacyPolicyUrl,
       route: '/auth/resend-registration-code',
       method: HttpMethod.post,
       fields: [

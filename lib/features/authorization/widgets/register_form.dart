@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:promo/core/api/api.dart';
 import 'package:promo/features/authorization/widgets/code_form.dart';
 import 'package:promo/shared/extensions/localization_extension.dart';
+import 'package:promo/shared/theme/app_strings.dart';
 import 'package:promo/shared/widgets/api_form/api_exception.dart';
 import 'package:promo/shared/widgets/api_form/api_form.dart';
 import 'package:promo/shared/widgets/api_form/api_field.dart';
@@ -16,6 +17,7 @@ class RegisterForm extends StatelessWidget {
       apiClient: api,
       title: context.l10n.authorizationRegisterTitle,
       submitTitle: context.l10n.authorizationRegisterTitle,
+      privacyPolicyUrl: AppStrings.privacyPolicyUrl,
       route: '/auth/register',
       method: HttpMethod.post,
       fields: [

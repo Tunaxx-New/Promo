@@ -1,22 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:promo/features/cards/widgets/card_card.dart';
+import 'package:promo/shared/extensions/localization_extension.dart';
 import 'package:promo/shared/models/user_card.dart';
 
 class CardsPage extends StatelessWidget {
   final List<UserCard> cards;
   final Future<void> Function()? onRefresh;
   final bool isLoading;
+  final bool showAppBar;
 
   const CardsPage({
     super.key,
     this.onRefresh,
     required this.cards,
     required this.isLoading,
+    this.showAppBar = false,
   });
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: showAppBar ? AppBar(title: Text(context.l10n.myCards)) : null,
       body: RefreshIndicator(
         onRefresh: () async {
           await onRefresh?.call();

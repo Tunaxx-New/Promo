@@ -28,6 +28,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get privacyPolicy => 'privacy policy';
 
   @override
+  String get privacyPolicyTitle => 'Privacy Policy';
+
+  @override
+  String get termOfUseTitle => 'Terms of Use';
+
+  @override
   String get promocode => 'promocode';
 
   @override
@@ -339,7 +345,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get your_bonusov => 'Your bonuses';
 
   @override
-  String get until_next_level => 'Until next level';
+  String until_next_level(Object level) {
+    return 'Until next level ($level)';
+  }
 
   @override
   String get washing => 'Washing';
@@ -357,7 +365,19 @@ class AppLocalizationsEn extends AppLocalizations {
   String get partner => 'Partner';
 
   @override
+  String get auto => 'Auto';
+
+  @override
+  String get company => 'Company';
+
+  @override
   String get useful => 'Useful';
+
+  @override
+  String get new_ => 'New';
+
+  @override
+  String get all => 'All';
 
   @override
   String get read_more => 'Read more';
@@ -372,6 +392,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get news => 'News';
 
   @override
+  String get no_news => 'No news';
+
+  @override
   String get main => 'Main';
 
   @override
@@ -381,7 +404,19 @@ class AppLocalizationsEn extends AppLocalizations {
   String get map => 'Map';
 
   @override
+  String get mapPoints => 'points';
+
+  @override
+  String get mapLoadError => 'Failed to load map points';
+
+  @override
+  String get retry => 'Retry';
+
+  @override
   String get profile => 'Profile';
+
+  @override
+  String get spend => 'Spend';
 
   @override
   String get spend_bonuses => 'Spend bonuses';
@@ -408,6 +443,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get about_app => 'About app';
 
   @override
+  String get current => 'Current';
+
+  @override
   String get bronze => 'Bronze';
 
   @override
@@ -417,8 +455,71 @@ class AppLocalizationsEn extends AppLocalizations {
   String get gold => 'Gold';
 
   @override
-  String get diamon => 'Diamond';
+  String get diamond => 'Diamond';
 
   @override
   String get guest => 'Guest';
+
+  @override
+  String get is_not_available_yet => 'is not available yet';
+
+  @override
+  String get show_code_to_cassier => 'Show code to cassier';
+
+  @override
+  String get searchCityHint => 'Search city';
+
+  @override
+  String get selectCity => 'Select City';
+
+  @override
+  String get humidity => 'Humidity';
+
+  @override
+  String get wind => 'Wind';
+
+  @override
+  String get pressure => 'Pressure';
+
+  @override
+  String get errorLoadingWeather => 'Failed to load weather';
+
+  @override
+  String get noCitiesResults => 'No cities found';
+
+  @override
+  String get changeCity => 'Change city';
+
+  @override
+  String get weatherClear => 'Clear';
+
+  @override
+  String get weatherPartlyCloudy => 'Partly cloudy';
+
+  @override
+  String get weatherCloudy => 'Cloudy';
+
+  @override
+  String get weatherOvercast => 'Overcast';
+
+  @override
+  String get weatherFog => 'Fog';
+
+  @override
+  String get weatherDrizzle => 'Drizzle';
+
+  @override
+  String get weatherRain => 'Rain';
+
+  @override
+  String get weatherSnow => 'Snow';
+
+  @override
+  String get weatherThunderstorm => 'Thunderstorm';
+
+  @override
+  String get metersPerSecond => 'm/s';
+
+  @override
+  String get hectopascals => 'hPa';
 }

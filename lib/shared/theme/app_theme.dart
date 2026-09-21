@@ -6,6 +6,8 @@ class AppTheme {
   static const BorderRadius cardRadius = BorderRadius.all(Radius.circular(20));
   static const BorderRadius tileRadius = BorderRadius.all(Radius.circular(18));
   static const BorderRadius pillRadius = BorderRadius.all(Radius.circular(24));
+  static const BorderRadius angleRadius = BorderRadius.all(Radius.circular(8));
+  static const BorderRadius tagRadius = BorderRadius.all(Radius.circular(12));
 
   static const EdgeInsets screenPadding = EdgeInsets.symmetric(
     horizontal: 16,

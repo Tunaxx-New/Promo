@@ -88,7 +88,7 @@ class _CheckHeader extends StatelessWidget {
           const SizedBox(height: 6),
 
           Text(
-            formatDate(check.processedAt.toString()),
+            formatDate(context, check.processedAt.toString()),
             style: Theme.of(context).textTheme.bodyMedium,
           ),
 

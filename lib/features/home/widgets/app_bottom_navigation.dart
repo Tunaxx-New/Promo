@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:promo/shared/extensions/localization_extension.dart';
 import 'package:promo/shared/theme/app_colors.dart';
-
 
 /// Нижняя навигация. Состояние хранит родитель, поэтому виджет
 /// можно переиспользовать в любом контейнере экранов.
@@ -11,14 +11,14 @@ class AppBottomNavigation extends StatelessWidget {
     required this.onTap,
   });
 
-  final int currentIndex;
+  final int? currentIndex;
   final ValueChanged<int> onTap;
 
-  static const List<_NavigationEntry> _entries = <_NavigationEntry>[
-    _NavigationEntry('Главная', Icons.home),
-    _NavigationEntry('История', Icons.receipt_long),
-    _NavigationEntry('Карта', Icons.place_outlined),
-    _NavigationEntry('Профиль', Icons.person_outline),
+  static final List<_NavigationEntry> _entries = [
+    _NavigationEntry(Icons.home, (context) => context.l10n.main),
+    _NavigationEntry(Icons.receipt_long, (context) => context.l10n.history),
+    _NavigationEntry(Icons.place_outlined, (context) => context.l10n.map),
+    _NavigationEntry(Icons.person_outline, (context) => context.l10n.profile),
   ];
 
   @override
@@ -36,8 +36,10 @@ class AppBottomNavigation extends StatelessWidget {
             children: List.generate(_entries.length, (index) {
               final entry = _entries[index];
               final selected = index == currentIndex;
-              final color =
-                  selected ? Theme.of(context).colorScheme.secondary : Theme.of(context).colorScheme.onSurfaceVariant;
+              final label = entry.label(context);
+              final color = selected
+                  ? Theme.of(context).colorScheme.secondary
+                  : Theme.of(context).colorScheme.onSurfaceVariant;
 
               return Expanded(
                 child: InkWell(
@@ -48,12 +50,13 @@ class AppBottomNavigation extends StatelessWidget {
                       Icon(entry.icon, size: 32, color: color),
                       const SizedBox(height: 2),
                       Text(
-                        entry.label,
+                        label,
                         style: TextStyle(
                           color: color,
                           fontSize: 11,
-                          fontWeight:
-                              selected ? FontWeight.w600 : FontWeight.w400,
+                          fontWeight: selected
+                              ? FontWeight.w600
+                              : FontWeight.w400,
                         ),
                       ),
                     ],
@@ -69,8 +72,8 @@ class AppBottomNavigation extends StatelessWidget {
 }
 
 class _NavigationEntry {
-  const _NavigationEntry(this.label, this.icon);
+  const _NavigationEntry(this.icon, this.label);
 
-  final String label;
   final IconData icon;
+  final String Function(BuildContext) label;
 }

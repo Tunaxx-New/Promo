@@ -1,13 +1,24 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:promo/app/routes.dart';
 import 'package:promo/core/api/api.dart';
+import 'package:promo/core/api/minio.dart';
+import 'package:promo/features/authorization/widgets/delete_user_profile.dart';
+import 'package:promo/features/authorization/widgets/update_user_profile.dart';
 import 'package:promo/features/home/advanced_home_page.dart';
+import 'package:promo/pages/about_screen.dart';
+import 'package:promo/shared/extensions/localization_extension.dart';
 
 import 'package:promo/shared/models/company.dart';
 import 'package:promo/shared/models/payment_check.dart';
+import 'package:promo/shared/models/service.dart';
+import 'package:promo/shared/models/user.dart';
 import 'package:promo/shared/models/user_card.dart';
+import 'package:promo/shared/theme/app_strings.dart';
 import 'package:promo/shared/widgets/api_form/http_method.dart';
+import 'package:promo/shared/widgets/authorization/authorization_service.dart';
+import 'package:promo/shared/widgets/card/card_plate.dart';
 import 'package:promo/shared/widgets/error_handler.dart';
 import 'package:promo/shared/widgets/loading/loading_overlay.dart';
 import 'package:promo/shared/widgets/user/user_service.dart';
@@ -21,18 +32,26 @@ class AdvancedMainPage extends StatefulWidget {
 
 class _AdvancedMainPageState extends State<AdvancedMainPage> {
   final _user = UserService();
+  final _auth = AuthorizationService();
+  final _minio = MinioStorage();
 
-  String? _username;
+  User? user;
 
   bool? _isCompany;
   List<Company> _companies = [];
   final List<PaymentCheck> _checks = [];
   final List<UserCard> _cards = [];
+  final ValueNotifier<List<Service>> servicesNotifier = ValueNotifier([]);
 
   List<dynamic> _composePromocodes = [];
   int _selectedComposePromocodesIndex = 0;
 
   double _bonuses = 0.0;
+  final ValueNotifier<double> _bonusesNotifier = ValueNotifier(0);
+  void _setBonuses(double value) {
+    _bonuses = value;
+    _bonusesNotifier.value = value;
+  }
 
   String? _cardCode;
   int _cardCodeVersion = 0;
@@ -43,6 +62,7 @@ class _AdvancedMainPageState extends State<AdvancedMainPage> {
   bool _checksLoading = false;
   bool _userLoading = false;
   bool _cardCodeLoading = false;
+  bool _servicesLoading = false;
 
   @override
   void initState() {
@@ -94,6 +114,7 @@ class _AdvancedMainPageState extends State<AdvancedMainPage> {
       unawaited(
         _measure('loadCardCode', () => _loadCardCode(isShowError: false)),
       );
+      unawaited(_measure('loadServices', _loadServices));
 
       total.stop();
 
@@ -165,7 +186,7 @@ class _AdvancedMainPageState extends State<AdvancedMainPage> {
       await _user.saveName(response['name']);
 
       setState(() {
-        _username = response['name'];
+        user = User.fromJson(response);
         _isCompany = response['company_id'] != null;
         _cards
           ..clear()
@@ -179,11 +200,7 @@ class _AdvancedMainPageState extends State<AdvancedMainPage> {
                 }
               }
 
-              return UserCard.fromJson(
-                item,
-                company,
-                _bonuses,
-              );
+              return UserCard.fromJson(item, company, _bonuses);
             }).toList(),
           );
       });
@@ -192,7 +209,7 @@ class _AdvancedMainPageState extends State<AdvancedMainPage> {
       ErrorHandler.show(context, e);
       setState(() {
         _isCompany = false;
-        _bonuses = 0;
+        _setBonuses(0);
         _cards.clear();
       });
     } finally {
@@ -233,10 +250,11 @@ class _AdvancedMainPageState extends State<AdvancedMainPage> {
           );
 
         // Update bonuses global
-        _bonuses = 0.0;
+        var bonuses = 0.0;
         for (final check in _checks) {
-          _bonuses += check.bonusSum;
+          bonuses += check.bonusSum;
         }
+        _setBonuses(bonuses);
 
         // Update card based
         for (var i = 0; i < _cards.length; i++) {
@@ -306,23 +324,198 @@ class _AdvancedMainPageState extends State<AdvancedMainPage> {
     }
   }
 
+  Future<void> _loadServices({
+    bool isShowError = true,
+    bool refresh = false,
+  }) async {
+    if (_servicesLoading) {
+      debugPrint('⚠️ servicesLoading already running');
+      return;
+    }
+
+    _servicesLoading = true;
+
+    try {
+      final response = await api.request(
+        route: '/promotions/services?company_id=${AppStrings.companyId}',
+        method: HttpMethod.get,
+      );
+
+      var services = (response['data'] as List)
+          .map((json) => Service.fromJson(json as Map<String, dynamic>, _minio))
+          .toList();
+
+      for (final service in services) {
+        final company = _companies.cast<Company?>().firstWhere(
+          (company) => company?.id == service.companyId,
+          orElse: () => null,
+        );
+        service.companyName = company?.name;
+      }
+
+      if (!mounted) return;
+
+      setState(() {
+        servicesNotifier.value = services;
+      });
+    } catch (e) {
+      debugPrint(e.toString());
+
+      if (!mounted) return;
+
+      if (isShowError) {
+        ErrorHandler.show(context, e);
+      }
+    } finally {
+      _servicesLoading = false;
+    }
+  }
+
+  void _openBonuses() {}
+
+  void _openCars() {
+    debugPrint('ProfilePage: tap "Мои машины"');
+    showModalBottomSheet(
+      context: context,
+      builder: (context) {
+        return Padding(
+          padding: EdgeInsets.all(24),
+          child: Text(
+            '${context.l10n.my_cars} ${context.l10n.is_not_available_yet}',
+            style: TextStyle(fontSize: 18),
+          ),
+        );
+      },
+    );
+  }
+
+  void _openNotifications() {
+    debugPrint('ProfilePage: tap "Уведомления"');
+    showModalBottomSheet(
+      context: context,
+      builder: (context) {
+        return Padding(
+          padding: EdgeInsets.all(24),
+          child: Text(
+            '${context.l10n.notifications} ${context.l10n.is_not_available_yet}',
+            style: TextStyle(fontSize: 18),
+          ),
+        );
+      },
+    );
+  }
+
+  void _openSettings() {
+    debugPrint('ProfilePage: tap "Настройки"');
+    showModalBottomSheet(
+      context: context,
+      builder: (context) {
+        return Padding(
+          padding: EdgeInsets.all(24),
+          child: Text(
+            '${context.l10n.settings} ${context.l10n.is_not_available_yet}',
+            style: TextStyle(fontSize: 18),
+          ),
+        );
+      },
+    );
+  }
+
+  void _openAbout() {
+    Navigator.of(context).push(MaterialPageRoute(builder: (_) => AboutPage()));
+  }
+
+  void _updateUser() {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (_) => UpdateUserProfileWidget(
+          user: {'name': user?.name},
+          onUpdated: _loadUser,
+        ),
+      ),
+    );
+  }
+
+  void _deleteUser() {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (_) => DeleteUserProfileWidget(
+          user: {},
+          onDeleted: () {
+            Navigator.of(
+              context,
+            ).pushNamedAndRemoveUntil(AppRoutes.splash, (route) => false);
+          },
+        ),
+      ),
+    );
+  }
+
+  void _logout() async {
+    try {
+      api.request(
+        route: '/auth/logout',
+        method: HttpMethod.post,
+        body: {'refresh_token': await _auth.refreshToken},
+      );
+    } catch (e) {
+      ErrorHandler.show(context, e);
+    }
+
+    await _auth.logout();
+
+    if (!context.mounted) return;
+
+    Navigator.of(context).pushNamedAndRemoveUntil('/', (_) => false);
+  }
+
   @override
   Widget build(BuildContext context) {
-    final loading = _isCompany == null;
+    final loading = _isRefreshing;
 
     return LoadingOverlay(
       loading: loading,
-      child: AdvancedHomePage(
-        companies: _companies,
-        checks: _checks,
-        cards: _cards,
-        composePromocodes: _composePromocodes,
-        selectedComposePromocodesIndex: _selectedComposePromocodesIndex,
-        bonuses: _bonuses,
-        cardCode: _cardCode,
-        cardCodeVersion: _cardCodeVersion,
-        username: _username,
-        onRefresh: _refresh,
+      child: Column(
+        children: [
+          if (_cardCode != null)
+            Padding(
+              padding: const EdgeInsets.fromLTRB(16, 12, 16, 8),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(16),
+                child: CardPlate(
+                  title: context.l10n.show_code_to_cassier,
+                  barcode: _cardCode!,
+                  onExpired: _loadCardCode,
+                  key: ValueKey(_cardCodeVersion),
+                ),
+              ),
+            ),
+
+          Expanded(
+            child: AdvancedHomePage(
+              companies: _companies,
+              checks: _checks,
+              cards: _cards,
+              servicesNotifier: servicesNotifier,
+              composePromocodes: _composePromocodes,
+              selectedComposePromocodesIndex: _selectedComposePromocodesIndex,
+              bonusesNotifier: _bonusesNotifier,
+              cardCode: _cardCode,
+              cardCodeVersion: _cardCodeVersion,
+              user: user,
+              onRefresh: _refresh,
+              isChecksLoading: _checksLoading,
+              onBonuses: _openBonuses,
+              onCars: _openCars,
+              onNotifications: _openNotifications,
+              onSettings: _openSettings,
+              onAbout: _openAbout,
+              onUpdateUser: _updateUser,
+              onDeleteUser: _deleteUser,
+              onLogout: _logout,
+            ),
+          ),
+        ],
       ),
     );
   }
