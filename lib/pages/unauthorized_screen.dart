@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:promo/app/routes.dart';
 import 'package:promo/shared/extensions/localization_extension.dart';
+import 'package:promo/shared/widgets/language_button.dart';
 
 class UnauthorizedPage extends StatelessWidget {
   const UnauthorizedPage({super.key});
@@ -35,6 +36,8 @@ class UnauthorizedPage extends StatelessWidget {
               ),
             ),
           ),
+          
+          Positioned(top: 12, right: 16, child: const LanguageButton()),
 
           SafeArea(
             child: Column(
@@ -90,7 +93,11 @@ class UnauthorizedPage extends StatelessWidget {
                         height: 52,
                         child: ElevatedButton(
                           onPressed: () {
-                            Navigator.pushNamed(context, AppRoutes.authorization, arguments: 0);
+                            Navigator.pushNamed(
+                              context,
+                              AppRoutes.authorization,
+                              arguments: 0,
+                            );
                           },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: colorScheme.primary,
@@ -117,7 +124,11 @@ class UnauthorizedPage extends StatelessWidget {
                         height: 52,
                         child: OutlinedButton(
                           onPressed: () {
-                            Navigator.pushNamed(context, AppRoutes.authorization, arguments: 1);
+                            Navigator.pushNamed(
+                              context,
+                              AppRoutes.authorization,
+                              arguments: 1,
+                            );
                           },
                           style: OutlinedButton.styleFrom(
                             foregroundColor: colorScheme.onPrimary,

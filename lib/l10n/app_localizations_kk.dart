@@ -31,7 +31,7 @@ class AppLocalizationsKk extends AppLocalizations {
   String get privacyPolicyTitle => 'Құпиялылық саясаты';
 
   @override
-  String get termOfUseTitle => 'Terms of Use';
+  String get termOfUseTitle => 'Пайдалану шарттары';
 
   @override
   String get promocode => 'промокод';
@@ -100,7 +100,8 @@ class AppLocalizationsKk extends AppLocalizations {
   String get qr_code => 'QR-код';
 
   @override
-  String get hintSaveThisToken => 'Қауіпсіздік токенін жазып алып, сенімді жерде сақтаңыз. БҰЛ ТОКЕН ТЕК ҚҰРУ КЕЗІНДЕ ҒАНА КӨРІНЕДІ!';
+  String get hintSaveThisToken =>
+      'Қауіпсіздік токенін жазып алып, сенімді жерде сақтаңыз. БҰЛ ТОКЕН ТЕК ҚҰРУ КЕЗІНДЕ ҒАНА КӨРІНЕДІ!';
 
   @override
   String get userUpdateTitle => 'Пайдаланушы профилін жаңарту';
@@ -112,7 +113,8 @@ class AppLocalizationsKk extends AppLocalizations {
   String get userDeleteTitle => 'Профильді жою';
 
   @override
-  String get userDeleteDescription => 'Тіркелгіңізді жойғыңыз келетініне сенімдісіз бе?';
+  String get userDeleteDescription =>
+      'Тіркелгіңізді жойғыңыз келетініне сенімдісіз бе?';
 
   @override
   String get companyUpdateTitle => 'Компания профилін жаңарту';
@@ -410,7 +412,7 @@ class AppLocalizationsKk extends AppLocalizations {
   String get mapLoadError => 'Карта нүктелерін жүктеу сәтсіз аяқталды';
 
   @override
-  String get retry => 'Retry';
+  String get retry => 'Қайталау';
 
   @override
   String get profile => 'Профиль';
@@ -482,7 +484,8 @@ class AppLocalizationsKk extends AppLocalizations {
   String get pressure => 'Қысым';
 
   @override
-  String get errorLoadingWeather => 'Ауа райы туралы деректерді жүктеу мүмкін болмады';
+  String get errorLoadingWeather =>
+      'Ауа райы туралы деректерді жүктеу мүмкін болмады';
 
   @override
   String get noCitiesResults => 'Қалалар табылмады';
@@ -524,32 +527,32 @@ class AppLocalizationsKk extends AppLocalizations {
   String get hectopascals => 'гПа';
 
   @override
-  String get currency => 'Currency';
+  String get currency => 'Валюта';
 
   @override
-  String get price => 'Price';
+  String get price => 'Баға';
 
   @override
-  String get priceType => 'Price Type';
+  String get priceType => 'Баға түрі';
 
   @override
-  String get naming => 'Title';
+  String get naming => 'Атауы';
 
   @override
-  String get nothing_was_found => 'Nothing was found';
+  String get nothing_was_found => 'Ештеңе табылмады';
 
   @override
-  String get services_search => 'Search services';
+  String get services_search => 'Қызметтерді іздеу';
 
   @override
-  String get without_company => 'Without company';
+  String get without_company => 'Компаниясыз';
 
   @override
-  String get services_that_app_added => 'Services that app added';
+  String get services_that_app_added => 'Қолданба қосқан қызметтер';
 
   @override
-  String get from_services => 'services';
+  String get from_services => 'қызметтер';
 
   @override
-  String get contributors => 'contributors';
+  String get contributors => 'үлес қосушылар';
 }

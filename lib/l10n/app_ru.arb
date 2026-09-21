@@ -219,14 +219,14 @@
   "hectopascals": "гПа",
 
   "currency": "Валюта",
-  "price": "Баға",
-  "priceType": "Баға түрі",
-  "naming": "Атауы",
-  "nothing_was_found": "Ештеңе табылмады",
-  "services_search": "Қызметтерді іздеу",
-  "without_company": "Компаниясыз",
-  "services_that_app_added": "Қолданба қосқан қызметтер",
-  "from_services": "қызметтер",
+  "price": "Цена",
+  "priceType": "Тип цены",
+  "naming": "Название",
+  "nothing_was_found": "Ничего не найдено",
+  "services_search": "Поиск услуг",
+  "without_company": "Без компании",
+  "services_that_app_added": "Услуги, добавленные приложением",
+  "from_services": "услуг",
 
-  "contributors": "үлес қосушылар"
+  "contributors": "авторы"
 }

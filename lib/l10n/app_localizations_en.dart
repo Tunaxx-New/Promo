@@ -100,7 +100,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get qr_code => 'QR Code';
 
   @override
-  String get hintSaveThisToken => 'Write security token, and save in some place. THIS TOKEN VISIBLE ONLY ON CREATION!';
+  String get hintSaveThisToken =>
+      'Write security token, and save in some place. THIS TOKEN VISIBLE ONLY ON CREATION!';
 
   @override
   String get userUpdateTitle => 'Update profile';
@@ -112,7 +113,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get userDeleteTitle => 'Delete profile';
 
   @override
-  String get userDeleteDescription => 'Are you sure you want to delete your account?';
+  String get userDeleteDescription =>
+      'Are you sure you want to delete your account?';
 
   @override
   String get companyUpdateTitle => 'Company update profile';
@@ -222,7 +224,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get companyCreatePromocodeTitle => 'Create promo code';
 
   @override
-  String get companyCreatePromocodeDescription => 'New promo code creation form';
+  String get companyCreatePromocodeDescription =>
+      'New promo code creation form';
 
   @override
   String get companyCreateTokenTitle => 'Create API Token';

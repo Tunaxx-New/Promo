@@ -100,7 +100,8 @@ class AppLocalizationsRu extends AppLocalizations {
   String get qr_code => 'QR-код';
 
   @override
-  String get hintSaveThisToken => 'Запишите токен безопасности и сохраните его в надежном месте. ЭТОТ ТОКЕН ВИДЕН ТОЛЬКО ПРИ СОЗДАНИИ!';
+  String get hintSaveThisToken =>
+      'Запишите токен безопасности и сохраните его в надежном месте. ЭТОТ ТОКЕН ВИДЕН ТОЛЬКО ПРИ СОЗДАНИИ!';
 
   @override
   String get userUpdateTitle => 'Обновить профиль';
@@ -112,7 +113,8 @@ class AppLocalizationsRu extends AppLocalizations {
   String get userDeleteTitle => 'Удалить профиль';
 
   @override
-  String get userDeleteDescription => 'Вы уверены, что хотите удалить свой аккаунт?';
+  String get userDeleteDescription =>
+      'Вы уверены, что хотите удалить свой аккаунт?';
 
   @override
   String get companyUpdateTitle => 'Обновление профиля компании';
@@ -216,19 +218,22 @@ class AppLocalizationsRu extends AppLocalizations {
   String get companyUpdatePromocodeTitle => 'Обновить промокод';
 
   @override
-  String get companyUpdatePromocodeDescription => 'Редактирование информации о промокоде';
+  String get companyUpdatePromocodeDescription =>
+      'Редактирование информации о промокоде';
 
   @override
   String get companyCreatePromocodeTitle => 'Создать промокод';
 
   @override
-  String get companyCreatePromocodeDescription => 'Форма создания нового промокода';
+  String get companyCreatePromocodeDescription =>
+      'Форма создания нового промокода';
 
   @override
   String get companyCreateTokenTitle => 'Создать API токен';
 
   @override
-  String get companyCreateTokenDescription => 'Форма создания нового API токена';
+  String get companyCreateTokenDescription =>
+      'Форма создания нового API токена';
 
   @override
   String get homeTitle => 'Главная';
@@ -527,29 +532,29 @@ class AppLocalizationsRu extends AppLocalizations {
   String get currency => 'Валюта';
 
   @override
-  String get price => 'Баға';
+  String get price => 'Цена';
 
   @override
-  String get priceType => 'Баға түрі';
+  String get priceType => 'Тип цены';
 
   @override
-  String get naming => 'Атауы';
+  String get naming => 'Название';
 
   @override
-  String get nothing_was_found => 'Ештеңе табылмады';
+  String get nothing_was_found => 'Ничего не найдено';
 
   @override
-  String get services_search => 'Қызметтерді іздеу';
+  String get services_search => 'Поиск услуг';
 
   @override
-  String get without_company => 'Компаниясыз';
+  String get without_company => 'Без компании';
 
   @override
-  String get services_that_app_added => 'Қолданба қосқан қызметтер';
+  String get services_that_app_added => 'Услуги, добавленные приложением';
 
   @override
-  String get from_services => 'қызметтер';
+  String get from_services => 'услуг';
 
   @override
-  String get contributors => 'үлес қосушылар';
+  String get contributors => 'авторы';
 }
