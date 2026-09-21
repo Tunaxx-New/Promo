@@ -1,0 +1,5 @@
+{
+  "API_BASE_URL": "https://tunaxx.duckdns.org",
+  "API_MINIO_URL": "https://tunaxx.duckdns.org/minio",
+  "ADVANCED_MAIN_PAGE": "true"
+}

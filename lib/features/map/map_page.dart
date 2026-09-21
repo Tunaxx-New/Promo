@@ -98,7 +98,7 @@ class _MapPageState extends State<MapPage> {
     );
   }
 
-  Widget buildView(context, colorScheme) {
+  Widget buildView(BuildContext context, ColorScheme colorScheme) {
     if (_loading) return const Center(child: CircularProgressIndicator());
     if (_error != null) return ErrorCard(error: _error!, onRetry: _loadPoints);
 
