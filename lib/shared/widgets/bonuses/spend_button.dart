@@ -29,7 +29,7 @@ class SpendButton extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 11),
               child: Center(
                 child: Text(
-                  context.l10n.spend,
+                  context.l10n.myCards,
                   style: TextStyle(
                     color: AppColors.textPrimary,
                     fontSize: 14,
