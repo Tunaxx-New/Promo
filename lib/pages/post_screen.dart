@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:promo/shared/extensions/localization_extension.dart';
+import 'package:promo/shared/widgets/linkified_text.dart';
 
 class PostPage extends StatelessWidget {
   const PostPage({
@@ -35,7 +37,7 @@ class PostPage extends StatelessWidget {
       backgroundColor: colorScheme.surface,
 
       appBar: AppBar(
-        title: const Text('Новость'),
+        title: LinkifiedText(text: context.l10n.new_),
         backgroundColor: colorScheme.surface,
         foregroundColor: colorScheme.onSurface,
         elevation: 0,
@@ -89,8 +91,8 @@ class PostPage extends StatelessWidget {
 
                     const SizedBox(height: 24),
 
-                    Text(
-                      description!,
+                    LinkifiedText(
+                      text: description!,
                       style: theme.textTheme.bodyLarge?.copyWith(
                         color: colorScheme.onSurface,
                         fontSize: 17,
