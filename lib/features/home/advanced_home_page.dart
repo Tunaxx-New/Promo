@@ -132,7 +132,10 @@ class _AdvancedHomePageState extends State<AdvancedHomePage> {
             builder: (_) => BonusesPage(
               balance: widget.bonusesNotifier,
               onSpend: _spendBonuses,
-              widgetListServices: AdvancedServiceList(servicesNotifier: widget.servicesNotifier)
+              widgetListServices: AdvancedServiceList(
+                servicesNotifier: widget.servicesNotifier,
+              ),
+              cards: widget.cards,
             ),
           ),
         );
@@ -272,6 +275,24 @@ class _AdvancedHomePageState extends State<AdvancedHomePage> {
                     const SizedBox(height: 16),
 
                     MenuGrid(onItemTap: _openSection),
+
+                    const SizedBox(height: 16),
+
+                    ExpansionTile(
+                      title: Text(context.l10n.myCards),
+                      initiallyExpanded: false,
+                      children: [
+                        SizedBox(
+                          width: double.infinity,
+                          height: 250,
+                          child: CardsPage(
+                            cards: widget.cards,
+                            isLoading: widget.isChecksLoading,
+                            showAppBar: false,
+                          ),
+                        ),
+                      ],
+                    ),
 
                     const SizedBox(height: 16),
 

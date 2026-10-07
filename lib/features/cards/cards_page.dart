@@ -34,6 +34,7 @@ class CardsPage extends StatelessWidget {
                 ),
               )
             : ListView.builder(
+                shrinkWrap: true,
                 padding: const EdgeInsets.all(16),
                 physics: const AlwaysScrollableScrollPhysics(),
                 itemCount: cards.length,

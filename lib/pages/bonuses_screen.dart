@@ -1,7 +1,9 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:promo/features/cards/cards_page.dart';
 import 'package:promo/features/home/widgets/home_header.dart';
 import 'package:promo/shared/extensions/localization_extension.dart';
+import 'package:promo/shared/models/user_card.dart';
 import 'package:promo/shared/theme/app_colors.dart';
 import 'package:promo/shared/theme/app_strings.dart';
 import 'package:promo/shared/widgets/bonuses/coin_icon.dart';
@@ -12,11 +14,18 @@ import 'package:promo/shared/widgets/services/advanced_service_list.dart';
 import 'package:promo/shared/widgets/services/service_list.dart';
 
 class BonusesPage extends StatelessWidget {
-  const BonusesPage({super.key, required this.balance, required this.onSpend, required this.widgetListServices});
+  const BonusesPage({
+    super.key,
+    required this.balance,
+    required this.onSpend,
+    required this.widgetListServices,
+    required this.cards,
+  });
 
   final ValueListenable<double> balance;
   final VoidCallback? onSpend;
   final Widget widgetListServices;
+  final List<UserCard> cards;
 
   @override
   Widget build(BuildContext context) {
@@ -94,6 +103,24 @@ class BonusesPage extends StatelessWidget {
                       width: 180,
                       child: SpendButton(onTap: onSpend),
                     ),
+                  ),
+
+                  const SizedBox(height: 24),
+
+                  ExpansionTile(
+                    title: Text(context.l10n.myCards),
+                    initiallyExpanded: true,
+                    children: [
+                      SizedBox(
+                        width: double.infinity,
+                        height: 250,
+                        child: CardsPage(
+                          cards: cards,
+                          isLoading: false,
+                          showAppBar: false,
+                        ),
+                      ),
+                    ],
                   ),
 
                   const SizedBox(height: 24),
